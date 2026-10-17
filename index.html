@@ -1,104 +1,2229 @@
 <!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Code Challenge | Parcial de Algoritmo y Programación</title>
-<style>
-:root{color-scheme:light dark;--bg:light-dark(#f4f6fb,#101522);--panel:light-dark(#fff,#1a2233);--panel2:light-dark(#eef2ff,#222e47);--text:light-dark(#172033,#f2f5ff);--muted:light-dark(#64708a,#aab5cc);--line:light-dark(#dce2ef,#35415a);--accent:light-dark(#5548e8,#938aff);--accent2:light-dark(#e9e7ff,#393260);--good:#14865c;--bad:#c24152;--gold:#f3bd45}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 16px;font-weight:750;background:var(--accent);color:white;transition:.15s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.danger{background:#b93449}.good{background:#12805a}.shell{max-width:1160px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#6658f5,#2e9be7);font-size:24px;color:white}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}h1{font-size:clamp(24px,4vw,36px);line-height:1.1;margin:3px 0}h2{margin:0 0 8px;font-size:23px}h3{margin:0 0 8px}.muted{color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:13px;font-weight:700}.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 8px 28px #1118270b}.panel+.panel{margin-top:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.stat{background:var(--panel2);border-radius:14px;padding:14px}.stat strong{display:block;font-size:25px}.stat span{font-size:12px;color:var(--muted)}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{display:flex;align-items:center;justify-content:space-between;gap:12px}.stack{display:grid;gap:12px}.field{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:10px 12px}.student-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}.student{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:11px;padding:10px;font-size:14px;min-width:0}.student input{accent-color:var(--accent);width:17px;height:17px}.student span{overflow-wrap:anywhere}.team-list{display:grid;gap:9px;margin-top:14px}.team{border:1px solid var(--line);border-radius:13px;padding:12px}.team ul{padding-left:20px;margin:7px 0 0;color:var(--muted)}.wheel{width:min(270px,75vw);aspect-ratio:1;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:conic-gradient(#6658f5 0 25%,#e95c85 25% 50%,#f2bd46 50% 75%,#2e9be7 75% 100%);padding:12px;box-shadow:0 8px 24px #0002}.wheel-inner{background:var(--panel);border-radius:50%;width:100%;height:100%;display:grid;place-items:center;text-align:center;padding:20px;border:5px solid var(--panel)}.wheel-inner strong{font-size:clamp(18px,3vw,24px)}.question{font-size:21px;font-weight:800;margin:15px 0}.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.option{background:var(--panel2);color:var(--text);border:1px solid var(--line);text-align:left;min-height:66px;display:flex;align-items:center;gap:10px}.option b{width:29px;height:29px;border-radius:9px;background:var(--panel);display:grid;place-items:center;flex-shrink:0}.option.chosen{outline:2px solid var(--accent)}.option.correct{border-color:var(--good);background:light-dark(#e2f8ee,#143b30)}.option.wrong{border-color:var(--bad);background:light-dark(#ffeaed,#48232d)}.notice{padding:12px 14px;border-radius:12px;background:var(--panel2);margin-top:13px}.notice.goodtext{background:light-dark(#e2f8ee,#143b30);color:light-dark(#075c3d,#b6f6d8)}.notice.badtext{background:light-dark(#ffeaed,#48232d);color:light-dark(#8d1d31,#ffc0c9)}.hide{display:none!important}.progress{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 16px}.progress span{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}.score{font-size:34px;font-weight:900;color:var(--gold)}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted)}.small{font-size:13px}.foot{margin:22px 0 4px;text-align:center;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--panel);padding:12px 18px;border-radius:12px;box-shadow:0 8px 30px #0003;z-index:5;max-width:90vw}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.shell{padding:14px}.student-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.top>.pill{display:none}}@media(max-width:440px){.options{grid-template-columns:1fr}.stats{gap:6px}.stat{padding:10px}.stat strong{font-size:21px}.panel{padding:16px}}
-/* Fondo gamer juvenil, sin imágenes: puro CSS */
-:root{color-scheme:dark;--bg:#090d1b;--panel:#111a30;--panel2:#192641;--text:#f3f6ff;--muted:#a0aecb;--line:#2b3b5d;--accent:#7c5cff;--accent2:#30265e;--good:#28d6a0;--bad:#ff647c;--gold:#ffd166}
-body{background:radial-gradient(ellipse at 12% 0%,#1d2b56 0,transparent 36%),radial-gradient(ellipse at 92% 14%,#32205a 0,transparent 30%),linear-gradient(145deg,#090d1b,#10172a 55%,#0b1020);background-attachment:fixed}
-.panel{background:linear-gradient(145deg,#141e35f5,#10182bf5);border-color:#2b3b5d;box-shadow:0 18px 48px #0003,inset 0 1px #ffffff08;backdrop-filter:blur(12px)}.logo{box-shadow:0 0 28px #6658f555}.stat{background:linear-gradient(145deg,#1b2b4b,#17213a);border:1px solid #2b3b5d}.pill{background:#151f38;border-color:#3a4770;color:#c2caff}
-button{background:linear-gradient(120deg,#7c5cff,#4b8dff);box-shadow:0 5px 18px #654fff24}button:hover{box-shadow:0 8px 22px #654fff40}.secondary{background:#1a2742;box-shadow:none}.good{background:linear-gradient(120deg,#087f68,#20b889)}.danger{background:linear-gradient(120deg,#b93449,#e24f68)}
-.field{background:#0d1425;border-color:#344465}.field:focus{outline:none;border-color:#8d7bff;box-shadow:0 0 0 3px #7c5cff28}.student,.team{background:#121c31}.wheel{box-shadow:0 0 0 8px #ffffff06,0 0 48px #7c5cff25;animation:wheelGlow 4s ease-in-out infinite}.wheel-inner{background:#10182b;border-color:#1d2944}.option{background:#1a2742;border-color:#344465}.option b{background:#0d1425;color:#bcb2ff}.option.correct{background:#143b30}.option.wrong{background:#48232d}.notice{background:#1a2742;border-color:#2d3c5d}.notice.goodtext{background:#103a31;color:#b6f6d8;border-color:#1c8066}.notice.badtext{background:#48232d;color:#ffc0c9;border-color:#a83b52}.progress{background:#263451}.progress span{background:linear-gradient(90deg,#7c5cff,#23c8d8)}.eyebrow{color:#9da9ff}
-@keyframes wheelGlow{50%{box-shadow:0 0 0 8px #ffffff06,0 0 58px #23c8d833}}
-/* CODE CHALLENGE: modo torneo, animaciones ligeras y accesibles */
-html{scroll-behavior:smooth}body{overflow-x:hidden;background-size:100% 100%,100% 100%,100% 100%}.shell{position:relative}.top{position:relative;padding:18px 20px;border:1px solid #34436b;border-radius:22px;background:linear-gradient(115deg,#111a30dd,#21194bdd);box-shadow:0 18px 50px #0003;overflow:hidden;animation:ccEnter .65s ease both}.top:after{content:"";position:absolute;width:240px;height:240px;right:-90px;top:-150px;border-radius:50%;background:#7c5cff30;filter:blur(5px);pointer-events:none}.brand{position:relative;z-index:1}.brand h1{letter-spacing:.045em;text-shadow:0 0 24px #8d7bff35}.brand .logo{font-weight:900;animation:ccLogo 3s ease-in-out infinite}.top>.pill{position:relative;z-index:1;background:#10182b;border-color:#58649b;color:#d9dcff}.panel{position:relative;overflow:hidden;animation:ccEnter .48s ease both;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}.panel:hover{border-color:#52659a;box-shadow:0 22px 55px #0004,inset 0 1px #ffffff0d}.panel h2,.panel h3{letter-spacing:-.02em}.eyebrow{letter-spacing:.16em;text-shadow:0 0 16px #7c5cff30}.stat{position:relative;overflow:hidden;transition:transform .2s ease,border-color .2s ease}.stat:after{content:"";position:absolute;right:-18px;bottom:-34px;width:88px;height:88px;border-radius:50%;background:#7c5cff16}.stat:hover{transform:translateY(-3px);border-color:#7c5cff}.stat strong{font-variant-numeric:tabular-nums;text-shadow:0 0 20px #7c5cff25}.team{transition:transform .2s ease,border-color .2s ease,background .2s ease}.team:hover{transform:translateY(-2px);border-color:#6575b0}.field{transition:border-color .2s ease,box-shadow .2s ease}.field:focus-visible,button:focus-visible,.option:focus-visible{outline:3px solid #a99eff;outline-offset:3px}button{position:relative;overflow:hidden;transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}button:not(:disabled):active{transform:translateY(1px) scale(.985)}button:not(:disabled):hover{filter:brightness(1.12);box-shadow:0 8px 24px #654fff38}.secondary{background:linear-gradient(135deg,#202d4a,#17223b);border-color:#35476c}.good{background:linear-gradient(120deg,#087f68,#20b889)}.danger{background:linear-gradient(120deg,#b93449,#e24f68)}.wheel{position:relative;isolation:isolate;animation:wheelGlow 4s ease-in-out infinite,ccFloat 5s ease-in-out infinite}.wheel:before{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid #8d7bff55;animation:ccRing 2.8s ease-out infinite;pointer-events:none}.wheel-inner{position:relative;overflow:hidden}.wheel-inner:after{content:"";position:absolute;inset:14px;border:1px dashed #9da9ff35;border-radius:50%;animation:ccOrbit 28s linear infinite;pointer-events:none}.wheel-inner>div{position:relative;z-index:1}.option{position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.option:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,#ffffff13 48%,transparent 70%);transform:translateX(-120%);transition:transform .45s ease;pointer-events:none}.option:hover:not(:disabled){transform:translateY(-3px);border-color:#8d7bff;box-shadow:0 8px 24px #0003}.option:hover:not(:disabled):after{transform:translateX(120%)}.option.correct{animation:ccCorrect .45s ease}.option.wrong{animation:ccWrong .35s ease}.question{animation:ccQuestion .35s ease both}.notice:not(.hide){animation:ccNotice .28s ease both}.progress span{background-size:200% 100%;animation:ccShimmer 3s linear infinite}.score{ text-shadow:0 0 24px #ffd16655 }.pill{transition:border-color .2s ease,background .2s ease}.table-wrap{border:1px solid #2b3b5d;border-radius:12px}.table-wrap th{background:#192641;position:sticky;top:0}.foot{letter-spacing:.04em}
-@keyframes ccEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes ccLogo{0%,100%{box-shadow:0 0 18px #6658f555}50%{box-shadow:0 0 34px #23c8d866}}@keyframes ccFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes ccRing{0%{transform:scale(.94);opacity:.7}100%{transform:scale(1.13);opacity:0}}@keyframes ccOrbit{to{transform:rotate(360deg)}}@keyframes ccCorrect{0%{transform:scale(.98)}55%{transform:scale(1.025)}100%{transform:scale(1)}}@keyframes ccWrong{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}@keyframes ccQuestion{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}@keyframes ccNotice{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes ccShimmer{to{background-position:200% 0}}
-@media(max-width:600px){.top{padding:15px;border-radius:17px}.brand{align-items:flex-start}.brand .logo{width:42px;height:42px;flex-shrink:0}.top h1{font-size:clamp(22px,7vw,32px)}.wheel{width:min(240px,72vw)}.panel:hover{transform:none}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
- .bonus-panel{border:1px solid #8d7bff;background:radial-gradient(ellipse at top,#30265e,#111a30 68%);box-shadow:0 0 55px #7c5cff24}.bonus-title{font-size:clamp(28px,5vw,46px);text-align:center;background:linear-gradient(90deg,#ffe08a,#b9a8ff,#70e6ff);-webkit-background-clip:text;background-clip:text;color:transparent}.bonus-code{overflow-wrap:anywhere;background:#080e1d;border:1px solid #3b4a70;border-radius:14px;padding:18px;font:600 16px/1.7 ui-monospace,Consolas,monospace;color:#dbe6ff}.bonus-wheel{width:min(220px,62vw);margin:16px auto;border-radius:50%;aspect-ratio:1;display:grid;place-items:center;border:5px solid #8d7bff;background:conic-gradient(#7c5cff,#23c8d8,#f3bd45,#e95c85,#7c5cff);box-shadow:0 0 42px #7c5cff44}.bonus-wheel-inner{width:86%;height:86%;border-radius:50%;background:#10182b;display:grid;place-items:center;text-align:center;padding:16px}.bonus-wheel-inner strong{font-size:clamp(16px,3vw,21px);overflow-wrap:anywhere}.bonus-win{padding:28px 18px;border-radius:20px;text-align:center;background:linear-gradient(135deg,#143b30,#30265e);border:1px solid #28d6a0;animation:ccPrize .8s ease both}.bonus-win .prize-emoji{font-size:clamp(42px,8vw,76px);animation:ccPrizePop .8s ease-in-out infinite alternate}@keyframes ccPrize{from{opacity:0;transform:scale(.88) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes ccPrizePop{to{transform:translateY(-8px) rotate(5deg)}}
-</style></head>
-<body><main class="shell">
-<header class="top"><div class="brand"><div class="logo">{ }</div><div><div class="eyebrow">Parcial interactivo</div><h1>CODE CHALLENGE</h1><div class="muted">Algoritmo y Programación · Modo profesor</div></div></div><div class="pill">🏆 15 estudiantes · 5 grupos aleatorios</div></header>
-<section id="setup" class="panel">
- <div class="eyebrow">Paso 1 de 3</div><h2>¿Cómo quieres diseñar los grupos?</h2><p class="muted">Puedes crear los equipos manualmente o dejar que la aplicación los mezcle al azar. Cada grupo puede tener de 1 a 3 integrantes.</p>
- <div class="row" style="margin:18px 0"><button id="manualMode" class="secondary">✍️ Manual</button><button id="randomMode">🎲 Aleatorio</button></div>
- <div id="nameEditor" class="stack"><label for="names"><b>Lista de los 15 estudiantes</b><span class="muted small"> · Un nombre por línea. Puedes reemplazar los nombres de ejemplo.</span></label><textarea id="names" class="field" rows="8"></textarea><div class="row"><button id="saveNames" class="secondary">Actualizar lista</button><span id="nameCount" class="muted small"></span></div></div>
- <div id="manualBuilder" class="hide"><div class="notice">Marca hasta 3 estudiantes para crear cada grupo. Si marcas solo uno o dos, también es válido. Los estudiantes ya asignados no vuelven a aparecer.</div><div id="manualStudents" class="student-grid"></div><div class="row"><button id="addTeam">Añadir grupo con selección</button><button id="resetTeams" class="secondary">Reiniciar grupos</button></div><div id="manualTeams" class="team-list"></div><div class="row" style="margin-top:16px"><button id="startManual" disabled>Confirmar grupos e ir al concurso →</button></div></div>
- <div id="randomBuilder" class="hide"><div class="notice">Se mezclarán los 15 estudiantes y se crearán 5 grupos de 3. Puedes volver a mezclar antes de confirmar.</div><div class="row" style="margin:14px 0"><button id="shuffleTeams">🎲 Generar grupos</button><button id="startRandom" disabled>Confirmar grupos e ir al concurso →</button></div><div id="randomTeams" class="team-list"></div></div>
-</section>
-<section id="game" class="hide">
- <div class="stats"><div class="stat"><strong id="statTeams">0</strong><span>Grupos</span></div><div class="stat"><strong id="statQuestions">0/0</strong><span>Preguntas contestadas</span></div><div class="stat"><strong id="statPoints">0</strong><span>Puntos del grupo actual</span></div></div>
- <div class="layout"><div class="stack">
-  <section class="panel"><div class="between"><div><div class="eyebrow">Turno actual</div><h2 id="currentTeamTitle">Aún no hay grupo</h2><div id="currentMembers" class="muted small"></div></div><span id="questionBadge" class="pill">Pregunta 0 de 3</span></div><div class="progress"><span id="progressBar"></span></div>
-   <div id="questionArea" class="hide"><div id="topicBadge" class="pill"></div><div id="questionText" class="question"></div><div id="options" class="options"></div><div id="feedback" class="notice hide" aria-live="polite"></div><div class="row" style="margin-top:14px"><button id="helpBtn" class="secondary">🆘 Solicitar ayuda</button><button id="nextBtn" class="hide">Siguiente pregunta →</button><button id="finishBtn" class="hide good">Finalizar cuestionario</button></div><div id="helpArea" class="hide notice"><label for="helperSelect"><b>¿Quién les ayudará?</b></label><select id="helperSelect" class="field" style="margin:8px 0"></select><div class="row"><button id="confirmHelper">Confirmar ayudante</button><button id="cancelHelper" class="secondary">Cancelar</button></div><div id="helperFeedback" class="small"></div></div></div>
-   <div id="startTurnArea" class="stack"><p class="muted">Gira la ruleta para seleccionar un estudiante y activar el turno de su grupo.</p><button id="startQuestions" disabled>Iniciar preguntas</button></div>
-   <div id="finishedMessage" class="hide notice goodtext"></div>
-  </section>
-  <section class="panel"><div class="between"><h3>🏅 Marcador de grupos</h3><span class="pill">En vivo</span></div><div id="scoreboard" class="team-list"></div></section>
- </div><div class="stack">
-  <section class="panel"><div class="eyebrow">Selección aleatoria</div><h2>Ruleta de estudiantes</h2><div class="wheel"><div class="wheel-inner"><div><div class="eyebrow">Seleccionado</div><strong id="wheelName">¡A girar!</strong><div id="wheelTeam" class="muted small"></div></div></div></div><button id="spinBtn" style="width:100%">🎡 Girar ruleta</button><p class="muted small">La ruleta elige entre estudiantes que aún no han tenido su turno. Si sale alguien de un grupo ya atendido, se excluye ese equipo.</p></section>
-  <section class="panel"><div class="between"><h3>⭐ Puntos individuales por ayuda</h3><span class="pill">Acumulado</span></div><div id="helperScores" class="team-list"><div class="muted small">Aún no se han otorgado puntos de ayuda.</div></div></section>
-  <section class="panel"><h3>📊 Guardado de resultados</h3><p class="muted small">Pega aquí la URL de implementación de tu Apps Script para enviar cada grupo a Google Sheets al finalizar. Si aún no la tienes, deja el campo vacío y descarga el CSV.</p><label class="small" for="sheetUrl">URL de Apps Script (/exec)</label><input id="sheetUrl" class="field" placeholder="https://script.google.com/macros/s/.../exec"><button id="saveSheetUrl" class="secondary" style="width:100%;margin-top:8px">Guardar URL para esta sesión</button><div id="sheetStatus" class="muted small" style="margin:8px 0" aria-live="polite">Google Sheets no está conectado.</div><button id="exportCsv" class="secondary" style="width:100%">⬇ Descargar resultados CSV</button><button id="resetAll" class="danger" style="width:100%;margin-top:8px">Reiniciar concurso</button></section>
- </div></div>
- <section class="panel" style="margin-top:18px"><div class="between"><div><h3>🧠 Banco de preguntas</h3><p class="muted small">Preguntas de práctica distribuidas entre los cuatro temas solicitados.</p></div><span class="pill">12 preguntas base</span></div><div class="table-wrap"><table><thead><tr><th>Tema</th><th>Vista previa</th><th>Nivel</th></tr></thead><tbody id="questionBankPreview"></tbody></table></div></section>
- <section id="partialFinishArea" class="panel hide" style="margin-top:18px;text-align:center"><h2>🎓 ¡Todos los grupos completaron el parcial!</h2><p class="muted">¿Listos para el reto bonus y el premio sorpresa?</p><button id="finalizePartial" class="good">🏁 Finalizar parcial y jugar bonus</button></section>
- <section id="bonusArea" class="panel bonus-panel hide" style="margin-top:18px"><div class="eyebrow" style="text-align:center">Reto final · Nivel medio</div><h2 class="bonus-title">⚡ PREGUNTA BONUS ⚡</h2><p class="muted" style="text-align:center">La ruleta elegirá a un estudiante. Si se equivoca, saldrá de la ruleta y pasará el turno a otra persona.</p><div id="bonusPlayArea"><div class="bonus-wheel"><div class="bonus-wheel-inner"><div><div class="eyebrow">Estudiante seleccionado</div><strong id="bonusWheelName">¡A girar!</strong></div></div></div><button id="bonusSpinBtn" style="display:block;margin:0 auto">🎡 Girar ruleta bonus</button><div id="bonusQuestionWrap" class="hide" style="margin-top:24px"><div class="bonus-code">Algoritmo Calcular<br>x ← 3<br>Para i ← 1 Hasta 3 Hacer<br>&nbsp;&nbsp;x ← x * 2 - i<br>FinPara<br>Escribir x<br>FinAlgoritmo</div><div class="question" style="font-size:clamp(21px,3.5vw,30px)">¿Qué valor muestra el algoritmo al finalizar?</div><div id="bonusOptions" class="options"></div><div id="bonusFeedback" class="notice hide" aria-live="polite"></div></div></div><div id="bonusWin" class="bonus-win hide"><div class="prize-emoji">🎁✨🏆</div><h2>¡TENEMOS GANADOR!</h2><p id="bonusWinnerText" style="font-size:20px"></p><p>¡Felicitaciones! Has resuelto el reto final. Gracias por participar en CODE CHALLENGE; ¡te has ganado un <strong>PREMIO SORPRESA</strong>!</p><div style="font-size:28px;letter-spacing:8px" aria-hidden="true">🎉 🎊 ✨ 🥳 🎉</div></div><div id="bonusNoWinner" class="notice badtext hide" style="text-align:center"><h3>¡Reto completado!</h3>Todos los estudiantes participaron, pero nadie acertó esta vez. ¡Gracias por jugar CODE CHALLENGE!</div></section>
-</section>
-<div class="foot">CODE CHALLENGE · Parcial de Algoritmo y Programación · Prototipo interactivo</div>
-</main><div id="toast" class="toast hide" role="status"></div>
-<script>
-const initialNames=['CARAZO GANDARA ROUSSEAU EDUARDO','CARO MÁRQUEZ NÉSTOR GUSTAVO','CASTILLO MUÑOZ LUIS DAVID','DE LA ROSA BARRIOS KEVING HUMBERTO','GOMEZ REALES ADRIAN DAVID','GONZALEZ MENDOZA YESIT GABRIEL','HINCAPIÉ SARMIENTO JOURGEN ARTURO','MARTINEZ MARIMON VICTOR DANIEL','OCHOA VASQUEZ DIEGO ANDRES','PEREZ RODRÍGUEZ SEBASTIAN DAVID','ROCHA CHICO JEFFERSON','SALAS NAVARRO BARTOLO JUNIOR','VELASQUEZ DEAVILA JESÚS DANIEL','VILLASMIL ROSALES DIEGO RAFAEL','ZUÑIGA RODRIGUEZ KARLA MARCELA'];
-const bank=[
-{topic:'Palabras reservadas de PSeInt',level:'Básico',q:'¿Cuál de las siguientes palabras se utiliza para declarar el inicio de un algoritmo en PSeInt?',opts:['Proceso','Definir','Escribir','Segun'],a:0,why:'Proceso (también se admite Algoritmo en muchos contextos) marca el inicio del algoritmo.'},
-{topic:'Palabras reservadas de PSeInt',level:'Básico',q:'¿Qué instrucción permite mostrar un mensaje o resultado en pantalla?',opts:['Leer','Escribir','Mientras','Dimension'],a:1,why:'Escribir muestra información en la salida.'},
-{topic:'Palabras reservadas de PSeInt',level:'Básico',q:'¿Qué palabra se usa para recibir un dato ingresado por el usuario?',opts:['Mostrar','Imprimir','Leer','Entonces'],a:2,why:'Leer captura el dato que ingresa el usuario.'},
-{topic:'Condicionales',level:'Básico',q:'¿Qué estructura permite ejecutar instrucciones solo cuando una condición se cumple?',opts:['Para','Si...Entonces','Dimension','Escribir'],a:1,why:'Si...Entonces evalúa una condición y ejecuta un bloque según el resultado.'},
-{topic:'Condicionales',level:'Básico',q:'Si una condición puede ser verdadera o falsa y hay una acción para cada caso, ¿qué estructura conviene usar?',opts:['Si...Entonces...SiNo','Leer...Escribir','Para...Hasta','Dimension'],a:0,why:'SiNo permite definir el camino alternativo cuando la condición no se cumple.'},
-{topic:'Condicionales',level:'Básico',q:'¿Qué operador lógico exige que ambas condiciones sean verdaderas?',opts:['O','NO','Y','MOD'],a:2,why:'El operador Y (AND) solo resulta verdadero cuando ambas condiciones son verdaderas.'},
-{topic:'Elaboración de menú',level:'Básico',q:'¿Qué estructura de PSeInt es especialmente útil para ejecutar una opción entre varias alternativas de un menú?',opts:['Segun','Leer','Dimension','Mientras solamente'],a:0,why:'Segun permite seleccionar entre varios casos a partir del valor de una variable.'},
-{topic:'Elaboración de menú',level:'Básico',q:'En un menú con opciones 1, 2 y 3, ¿qué es recomendable hacer si el usuario ingresa 8?',opts:['Ejecutar la opción 3','Cerrar siempre el programa','Mostrar un mensaje de opción inválida','Cambiar 8 por 1'],a:2,why:'Validar la opción evita que se ejecuten acciones incorrectas.'},
-{topic:'Elaboración de menú',level:'Básico',q:'¿Qué estructura permite repetir un menú hasta que el usuario seleccione “Salir”?',opts:['Mientras o Repetir','Definir','Escribir una sola vez','Dimension'],a:0,why:'Un ciclo mantiene el menú activo hasta que se cumpla la condición de salida.'},
-{topic:'Divide y vencerás',level:'Básico',q:'¿Cuál es la idea principal de la estrategia “divide y vencerás”?',opts:['Resolver todo en una sola instrucción','Dividir el problema en subproblemas más pequeños','Evitar usar funciones','Repetir sin condición'],a:1,why:'Se divide el problema en partes más pequeñas, se resuelven y se combinan sus resultados.'},
-{topic:'Divide y vencerás',level:'Básico',q:'¿Cuál de estos algoritmos es un ejemplo clásico de divide y vencerás?',opts:['Búsqueda binaria','Sumar del 1 al 5 con una variable','Leer un nombre','Mostrar un saludo'],a:0,why:'La búsqueda binaria reduce a la mitad el espacio de búsqueda en cada paso.'},
-{topic:'Divide y vencerás',level:'Básico',q:'¿Qué elemento ayuda a detener una solución recursiva?',opts:['Una variable global siempre','Un caso base','Un menú infinito','Una instrucción Escribir'],a:1,why:'El caso base detiene la recursión cuando el problema ya es suficientemente sencillo.'}
-];
-let sheetEndpoint='',students=[...initialNames],teams=[],currentTeamId=null,currentQIndex=0,currentQuestions=[],selectedAnswer=null,answered=false,helpUsed=false,chosenHelper='',usedHelpersByTeam={},turnDone=new Set(),results=[],helperPoints={},selectedMode='random',manualAssigned=new Set(),spinning=false,bonusEligible=[...initialNames],bonusSelected='',bonusSpinning=false,bonusEnded=false;
-const $=id=>document.getElementById(id); const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function toast(msg){$('toast').textContent=msg;$('toast').classList.remove('hide');setTimeout(()=>$('toast').classList.add('hide'),2600)}
-function readNames(){let arr=$('names').value.split('\n').map(x=>x.trim()).filter(Boolean);if(arr.length!==15){toast('Necesitas exactamente 15 nombres. Ahora hay '+arr.length+'.');return false}if(new Set(arr.map(x=>x.toLowerCase())).size!==arr.length){toast('Hay nombres repetidos. Diferéncialos para identificar correctamente a cada estudiante.');return false}students=arr;$('nameCount').textContent=students.length+' estudiantes cargados';return true}
-function showMode(mode){selectedMode=mode;$('manualBuilder').classList.toggle('hide',mode!=='manual');$('randomBuilder').classList.toggle('hide',mode!=='random');$('manualMode').classList.toggle('secondary',mode!=='manual');$('randomMode').classList.toggle('secondary',mode!=='random');if(mode==='manual')renderManualStudents()}
-function teamName(t){return t.name||('Grupo '+t.id)}function renderTeams(target,list){$(target).innerHTML=list.length?list.map(t=>`<div class="team"><div class="between"><b>${esc(teamName(t))}</b><span class="pill">${t.members.length} integrante${t.members.length===1?'':'s'}</span></div><ul>${t.members.map(n=>'<li>'+esc(n)+'</li>').join('')}</ul></div>`).join(''):'<div class="muted small">Aún no hay grupos.</div>'}
-function renderManualStudents(){let available=students.filter(s=>!manualAssigned.has(s));$('manualStudents').innerHTML=available.map(s=>`<label class="student"><input type="checkbox" value="${esc(s)}"><span>${esc(s)}</span></label>`).join('');$('manualStudents').querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{let checked=[...$('manualStudents').querySelectorAll('input:checked')];if(checked.length>3){inp.checked=false;toast('Máximo 3 estudiantes por grupo.');}}));$('addTeam').disabled=false}
-function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
-$('names').value=initialNames.join('\n');$('nameCount').textContent='15 estudiantes cargados';$('manualMode').onclick=()=>showMode('manual');$('randomMode').onclick=()=>showMode('random');$('saveNames').onclick=()=>{if(readNames()){manualAssigned.clear();teams=[];renderManualStudents();renderTeams('manualTeams',teams);$('startManual').disabled=true;$('randomTeams').innerHTML='';$('startRandom').disabled=true}};
-$('addTeam').onclick=()=>{let chosen=[...$('manualStudents').querySelectorAll('input:checked')].map(x=>x.value);if(!chosen.length){toast('Selecciona al menos un estudiante.');return}teams.push({id:teams.length+1,members:chosen,score:0,questionScores:[],helpers:[],done:false,questions:[]});chosen.forEach(s=>manualAssigned.add(s));renderManualStudents();renderTeams('manualTeams',teams);$('startManual').disabled=teams.length===0;toast('Grupo '+teams.length+' creado.')};
-$('resetTeams').onclick=()=>{teams=[];manualAssigned.clear();renderManualStudents();renderTeams('manualTeams',teams);$('startManual').disabled=true};
-$('shuffleTeams').onclick=()=>{if(!readNames())return;let a=shuffle(students);teams=[];for(let i=0;i<a.length;i+=3)teams.push({id:teams.length+1,members:a.slice(i,i+3),score:0,questionScores:[],helpers:[],done:false,questions:[]});renderTeams('randomTeams',teams);$('startRandom').disabled=false};
-$('startManual').onclick=()=>{if(!teams.length)return;beginGame()};$('startRandom').onclick=()=>{if(!teams.length)return;beginGame()};
-function chooseQuestions(){let topics=['Palabras reservadas de PSeInt','Condicionales','Elaboración de menú','Divide y vencerás'];let out=[];topics.forEach(topic=>{let options=shuffle(bank.filter(q=>q.topic===topic));if(options[0])out.push(options[0])});return shuffle(out).slice(0,3)}
-function beginGame(){if(!teams.length){toast('Primero crea o genera los grupos.');return}teams.forEach(t=>{t.questions=chooseQuestions();t.done=false;t.score=0;t.questionScores=[];t.helpers=[]});$('setup').classList.add('hide');$('game').classList.remove('hide');$('statTeams').textContent=teams.length;$('statQuestions').textContent='0/'+(teams.length*3);$('questionBankPreview').innerHTML=bank.map(q=>`<tr><td>${esc(q.topic)}</td><td>${esc(q.q)}</td><td>${esc(q.level)}</td></tr>`).join('');renderScoreboard();renderHelperScores();updateStats();toast('Grupos listos. ¡Que comience el concurso!')}
-function renderScoreboard(){let ranked=[...teams].sort((a,b)=>b.score-a.score||a.id-b.id);$('scoreboard').innerHTML=ranked.map((t,i)=>`<div class="team"><div class="between"><b>${i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1)+'.'} ${esc(teamName(t))}</b><strong>${t.score} pts</strong></div><div class="muted small">${t.members.map(esc).join(' · ')}${t.done?' · Finalizado':''}</div><div class="progress"><span style="width:${Math.min(100,t.questionScores.length/3*100)}%"></span></div></div>`).join('')}
-function renderHelperScores(){let entries=Object.entries(helperPoints).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));$('helperScores').innerHTML=entries.length?`<div class="notice">🏆 <b>Quien más ha ayudado</b><br>${esc(entries[0][0])} · <strong>${entries[0][1]} puntos</strong></div>`+entries.map(([n,p],i)=>`<div class="between team"><span>${i===0?'🥇 ':''}${esc(n)}</span><strong>${p} pts</strong></div>`).join(''):'<div class="muted small">Aún no se han otorgado puntos de ayuda.</div>'}
-function updateStats(){$('statTeams').textContent=teams.length;$('statQuestions').textContent=teams.reduce((n,t)=>n+t.questionScores.length,0)+'/'+(teams.length*3);$('statPoints').textContent=currentTeamId?teams.find(t=>t.id===currentTeamId)?.score||0:0;renderScoreboard();renderHelperScores()}
-function spin(){if(spinning)return;let available=students.filter(s=>{let t=teams.find(t=>t.members.includes(s));return t&&!t.done&&!turnDone.has(t.id)});if(!available.length){toast('Todos los grupos ya tuvieron su turno.');return}spinning=true;$('spinBtn').disabled=true;$('startQuestions').disabled=true;let count=0;let timer=setInterval(()=>{let name=available[Math.floor(Math.random()*available.length)];$('wheelName').textContent=name;count++;if(count>16){clearInterval(timer);let chosen=available[Math.floor(Math.random()*available.length)];let t=teams.find(t=>t.members.includes(chosen));currentTeamId=t.id;$('wheelName').textContent=chosen;$('wheelTeam').textContent=teamName(t);$('currentTeamTitle').textContent=teamName(t);$('currentMembers').textContent=t.members.join(' · ');$('startQuestions').disabled=false;$('startTurnArea').classList.remove('hide');$('questionArea').classList.add('hide');$('finishedMessage').classList.add('hide');$('questionBadge').textContent='Listo para iniciar';spinning=false;$('spinBtn').disabled=false;updateStats()}},95)}
-$('spinBtn').onclick=spin;
-$('startQuestions').onclick=()=>{let t=teams.find(t=>t.id===currentTeamId);if(!t)return;currentQIndex=0;currentQuestions=t.questions;turnDone.add(t.id);$('startTurnArea').classList.add('hide');$('questionArea').classList.remove('hide');$('finishedMessage').classList.add('hide');showQuestion()};
-function showQuestion(){let q=currentQuestions[currentQIndex];selectedAnswer=null;answered=false;helpUsed=false;chosenHelper='';$('helperSelect').innerHTML='<option value="">Primero solicita ayuda…</option>';$('helperSelect').value='';$('confirmHelper').disabled=true;$('helperFeedback').textContent='';$('helpBtn').textContent='🆘 Solicitar ayuda';$('questionBadge').textContent=`Pregunta ${currentQIndex+1} de 3`;$('progressBar').style.width=((currentQIndex)/3*100)+'%';$('topicBadge').textContent=q.topic;$('questionText').textContent=q.q;$('options').innerHTML=q.opts.map((o,i)=>`<button class="option" data-i="${i}"><b>${'ABCD'[i]}</b><span>${esc(o)}</span></button>`).join('');$('options').querySelectorAll('button').forEach(b=>b.onclick=()=>selectAnswer(Number(b.dataset.i)));$('feedback').classList.add('hide');$('helpBtn').classList.remove('hide');$('helpBtn').disabled=false;$('helpArea').classList.add('hide');$('nextBtn').classList.add('hide');$('finishBtn').classList.add('hide');$('helperFeedback').textContent='';$('questionArea').classList.remove('hide');updateStats()}
-function selectAnswer(i){if(answered)return;selectedAnswer=i;answered=true;let q=currentQuestions[currentQIndex],t=teams.find(t=>t.id===currentTeamId),correct=i===q.a;[...$('options').querySelectorAll('button')].forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');if(j===i&&i!==q.a)b.classList.add('wrong')});let points=correct?(helpUsed?5:10):0;t.score+=points;t.questionScores.push(points);t.helpers.push(helpUsed?{name:chosenHelper,question:currentQIndex+1,correct,groupPoints:points,helperPoints:correct?5:0}:null);if(correct&&helpUsed)helperPoints[chosenHelper]=(helperPoints[chosenHelper]||0)+5;$('feedback').className='notice '+(correct?'goodtext':'badtext');$('feedback').textContent=(correct?'¡Respuesta correcta! ':'Respuesta incorrecta. ')+q.why+' Puntos para el grupo: '+points+'.'+(correct&&helpUsed?' '+chosenHelper+' recibe 5 puntos de ayuda.':'');$('feedback').classList.remove('hide');$('helpBtn').classList.add('hide');$('helpArea').classList.add('hide');if(currentQIndex<2)$('nextBtn').classList.remove('hide');else $('finishBtn').classList.remove('hide');updateStats()}
-$('helpBtn').onclick=()=>{if(answered||helpUsed)return;let t=teams.find(t=>t.id===currentTeamId);if(!t)return;const norm=s=>s.trim().toLocaleLowerCase('es');const members=new Set(t.members.map(norm));const used=new Set((usedHelpersByTeam[t.id]||[]).map(norm));const eligible=students.filter(s=>!members.has(norm(s))&&!used.has(norm(s)));$('helperSelect').innerHTML='<option value="">Selecciona un estudiante de otro grupo…</option>'+eligible.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');$('helperSelect').value='';$('confirmHelper').disabled=!eligible.length;$('helpArea').classList.remove('hide');$('helperFeedback').textContent=eligible.length?'No aparecen los integrantes del grupo ni estudiantes que este equipo ya utilizó como ayudantes. Si el ayudante acierta, el grupo recibe 5 puntos y el ayudante recibe 5 puntos.':'No quedan estudiantes disponibles: todos pertenecen al grupo o ya ayudaron antes a este equipo.'};$('helperSelect').onchange=()=>$('confirmHelper').disabled=!$('helperSelect').value;$('cancelHelper').onclick=()=>{$('helpArea').classList.add('hide');$('helperSelect').value=''};$('confirmHelper').onclick=()=>{let t=teams.find(t=>t.id===currentTeamId);if(!t)return;const norm=s=>s.trim().toLocaleLowerCase('es');const members=new Set(t.members.map(norm));const used=new Set((usedHelpersByTeam[t.id]||[]).map(norm));chosenHelper=$('helperSelect').value;if(!chosenHelper||members.has(norm(chosenHelper))||used.has(norm(chosenHelper))){toast('Elige un estudiante válido que no pertenezca al grupo y que no haya ayudado antes a este equipo.');return}helpUsed=true;usedHelpersByTeam[t.id]=[...(usedHelpersByTeam[t.id]||[]),chosenHelper];$('helperFeedback').textContent='Ayudante seleccionado: '+chosenHelper+'. Ahora el grupo debe elegir una respuesta.';$('helpBtn').textContent='Ayuda solicitada: '+chosenHelper;$('helpBtn').disabled=true;$('helpArea').classList.add('hide');toast('Ayuda confirmada. Si acierta, el reparto será 5 + 5.')};
-$('nextBtn').onclick=()=>{currentQIndex++;showQuestion()};$('finishBtn').onclick=async()=>{let t=teams.find(t=>t.id===currentTeamId);t.done=true;let record={group:teamName(t),members:[...t.members],scores:[...t.questionScores],total:t.score,helpers:t.helpers.map((h,i)=>h?{name:h.name,question:i+1,correct:h.correct,groupPoints:h.groupPoints,helperPoints:h.helperPoints}:null)};results.push(record);if(sheetEndpoint){$('sheetStatus').textContent='Enviando '+teamName(t)+' a Google Sheets…';try{await fetch(sheetEndpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(record)});$('sheetStatus').textContent='Solicitud enviada para '+teamName(t)+'. Verifica la hoja de cálculo para confirmar el registro.';}catch(e){$('sheetStatus').textContent='No se pudo enviar a Google Sheets. Descarga el CSV como respaldo.';}}$('questionArea').classList.add('hide');$('finishedMessage').classList.remove('hide');$('finishedMessage').innerHTML=`<b>¡Turno finalizado!</b><br>${esc(teamName(t))} obtuvo <strong>${t.score} puntos</strong> en sus tres preguntas. Los resultados se han añadido al registro local de esta sesión.`;$('startTurnArea').classList.remove('hide');$('startQuestions').disabled=true;$('startQuestions').textContent='Turno completado';$('currentTeamTitle').textContent=teamName(t)+' · Finalizado';$('progressBar').style.width='100%';updateStats();if(teams.every(x=>x.done)){toast('¡Concurso terminado! Descarga los resultados CSV.');$('spinBtn').disabled=true}else{$('spinBtn').disabled=false;$('wheelName').textContent='¡A girar!';$('wheelTeam').textContent='Siguiente grupo'} };
-function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}$('exportCsv').onclick=()=>{let rows=[['Grupo','Integrante 1','Integrante 2','Integrante 3','Puntos pregunta 1','Puntos pregunta 2','Puntos pregunta 3','Total grupo','Ayuda solicitada','Pregunta','Estudiante ayudante','Respuesta correcta','Puntos grupo por ayuda','Puntos ayudante']];teams.forEach(t=>{let base=[teamName(t),t.members[0]||'',t.members[1]||'',t.members[2]||'',t.questionScores[0]??'',t.questionScores[1]??'',t.questionScores[2]??'',t.score];let hs=t.helpers.map((h,i)=>h?{...h,question:i+1}:null).filter(Boolean);if(!hs.length)rows.push([...base,'No','','','','','']);else hs.forEach(h=>rows.push([...base,'Sí',h.question,h.name,h.correct?'Sí':'No',h.groupPoints,h.helperPoints]))});let csv='\ufeff'+rows.map(r=>r.map(csvCell).join(';')).join('\r\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));a.download='resultados_code_challenge.csv';a.click();URL.revokeObjectURL(a.href);toast('CSV generado. Puedes abrirlo en Excel o Google Sheets.')};
-$('saveSheetUrl').onclick=()=>{let url=$('sheetUrl').value.trim();if(url && !/^https:\/\/script\.google\.com\/(?:macros\/s\/[^/]+\/exec|a\/macros\/[^/]+\/s\/[^/]+\/exec)\/?$/.test(url)){toast('Pega la URL completa de implementación de Apps Script que termina en /exec.');$('sheetStatus').textContent='La URL no tiene el formato esperado. Revisa que sea la URL de implementación del Web App.';return}sheetEndpoint=url.replace(/\/+$/,'');$('sheetStatus').textContent=url?'URL configurada para esta sesión. Al finalizar cada grupo se enviará su resultado.':'Google Sheets no está conectado; puedes descargar el CSV.';toast(url?'URL configurada para esta sesión.':'Conexión desactivada.')};
-$('resetAll').onclick=()=>{if(!confirm('¿Seguro que quieres reiniciar el concurso y borrar el progreso de esta sesión?'))return;location.reload()};
-/* Ayuda disponible por cada pregunta: se permite repetir ayudantes en preguntas distintas. */
-$('helpBtn').onclick=()=>{if(answered||helpUsed)return;const t=teams.find(x=>x.id===currentTeamId);if(!t)return;const norm=s=>s.trim().toLocaleLowerCase('es');const members=new Set(t.members.map(norm));const eligible=students.filter(s=>!members.has(norm(s)));$('helperSelect').innerHTML='<option value="">Selecciona un estudiante de otro grupo…</option>'+eligible.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');$('helperSelect').value='';$('confirmHelper').disabled=!eligible.length;$('helpArea').classList.remove('hide');$('helperFeedback').textContent=eligible.length?'Esta ayuda cuenta solo para la pregunta actual. Si el grupo acierta, ambos reciben 5 puntos. Podrán volver a solicitar ayuda en otra pregunta.':'No hay estudiantes de otros grupos disponibles para ayudar.'};
-$('confirmHelper').onclick=()=>{const t=teams.find(x=>x.id===currentTeamId);if(!t)return;const norm=s=>s.trim().toLocaleLowerCase('es');const members=new Set(t.members.map(norm));chosenHelper=$('helperSelect').value;if(!chosenHelper||members.has(norm(chosenHelper))){toast('Elige un estudiante que no pertenezca al grupo.');return}helpUsed=true;usedHelpersByTeam[t.id]=[...(usedHelpersByTeam[t.id]||[]),chosenHelper];$('helperFeedback').textContent='Ayudante seleccionado: '+chosenHelper+'. Ahora el grupo debe elegir una respuesta.';$('helpBtn').textContent='Ayuda solicitada: '+chosenHelper;$('helpBtn').disabled=true;$('helpArea').classList.add('hide');toast('Ayuda confirmada para esta pregunta. Si acierta, el reparto será 5 + 5.')};
-$('finishBtn').addEventListener('click',()=>{setTimeout(()=>{const allFinished=teams.length>0&&teams.every(t=>t.done||t.questionScores.length>=3);if(allFinished){$('partialFinishArea').classList.remove('hide');$('finalizePartial').textContent='🏁 Iniciar Bonus Track';$('partialFinishArea').scrollIntoView({behavior:'smooth',block:'center'});toast('¡Parcial finalizado! Ya puedes iniciar el Bonus Track.')}},0)});
-$('finalizePartial').onclick=()=>{bonusEligible=[...students];bonusSelected='';bonusEnded=false;$('partialFinishArea').classList.add('hide');$('bonusArea').classList.remove('hide');$('bonusPlayArea').classList.remove('hide');$('bonusWin').classList.add('hide');$('bonusNoWinner').classList.add('hide');$('bonusQuestionWrap').classList.add('hide');$('bonusFeedback').classList.add('hide');$('bonusSpinBtn').disabled=false;$('bonusSpinBtn').textContent='🎡 Girar ruleta bonus';$('bonusWheelName').textContent='¡A girar!';$('bonusArea').scrollIntoView({behavior:'smooth',block:'start'});toast('¡Comienza el reto bonus de nivel medio!')};
-$('bonusSpinBtn').onclick=()=>{if(bonusSpinning||bonusEnded)return;if(!bonusEligible.length){$('bonusNoWinner').classList.remove('hide');$('bonusSpinBtn').disabled=true;return}bonusSpinning=true;$('bonusSpinBtn').disabled=true;$('bonusQuestionWrap').classList.add('hide');$('bonusFeedback').classList.add('hide');let ticks=0;const timer=setInterval(()=>{$('bonusWheelName').textContent=bonusEligible[Math.floor(Math.random()*bonusEligible.length)];ticks++;if(ticks>=18){clearInterval(timer);bonusSelected=bonusEligible[Math.floor(Math.random()*bonusEligible.length)];$('bonusWheelName').textContent=bonusSelected;$('bonusQuestionWrap').classList.remove('hide');$('bonusOptions').innerHTML=['11','13','16','18'].map((v,i)=>`<button class="option" data-bonus="${i}"><b>${'ABCD'[i]}</b><span>${v}</span></button>`).join('');$('bonusOptions').querySelectorAll('button').forEach(b=>b.onclick=()=>{if(bonusEnded)return;const correct=Number(b.dataset.bonus)===1;[...$('bonusOptions').querySelectorAll('button')].forEach(x=>{x.disabled=true;if(Number(x.dataset.bonus)===1)x.classList.add('correct');if(x===b&&!correct)x.classList.add('wrong')});if(correct){bonusEnded=true;$('bonusPlayArea').classList.add('hide');$('bonusWin').classList.remove('hide');$('bonusWinnerText').textContent='¡'+bonusSelected+'!';$('bonusArea').scrollIntoView({behavior:'smooth',block:'center'});return}bonusEligible=bonusEligible.filter(s=>s!==bonusSelected);$('bonusFeedback').className='notice badtext';$('bonusFeedback').textContent='Respuesta incorrecta. '+bonusSelected+' queda fuera de la ruleta. La respuesta correcta era 13, porque los valores de x son 5, 8 y 13.';$('bonusFeedback').classList.remove('hide');$('bonusSpinBtn').disabled=false;$('bonusSpinBtn').textContent=bonusEligible.length?'🔄 Girar de nuevo':'Ver resultado final';if(!bonusEligible.length){$('bonusSpinBtn').disabled=true;$('bonusNoWinner').classList.remove('hide')}});bonusSpinning=false;$('bonusSpinBtn').disabled=false;$('bonusSpinBtn').textContent='🎡 Girar siguiente estudiante';}},85)};
-showMode('random');
-</script></body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Code Challenge | Parcial de Algoritmo y Programación</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: light-dark(#f4f6fb, #101522);
+        --panel: light-dark(#fff, #1a2233);
+        --panel2: light-dark(#eef2ff, #222e47);
+        --text: light-dark(#172033, #f2f5ff);
+        --muted: light-dark(#64708a, #aab5cc);
+        --line: light-dark(#dce2ef, #35415a);
+        --accent: light-dark(#5548e8, #938aff);
+        --accent2: light-dark(#e9e7ff, #393260);
+        --good: #14865c;
+        --bad: #c24152;
+        --gold: #f3bd45;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          16px/1.45 system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          sans-serif;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+        border: 0;
+        border-radius: 12px;
+        padding: 11px 16px;
+        font-weight: 750;
+        background: var(--accent);
+        color: white;
+        transition: 0.15s;
+      }
+      button:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+      }
+      button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .secondary {
+        background: var(--panel2);
+        color: var(--text);
+        border: 1px solid var(--line);
+      }
+      .danger {
+        background: #b93449;
+      }
+      .good {
+        background: #12805a;
+      }
+      .shell {
+        max-width: 1160px;
+        margin: auto;
+        padding: 24px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #6658f5, #2e9be7);
+        font-size: 24px;
+        color: white;
+      }
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        font-size: clamp(24px, 4vw, 36px);
+        line-height: 1.1;
+        margin: 3px 0;
+      }
+      h2 {
+        margin: 0 0 8px;
+        font-size: 23px;
+      }
+      h3 {
+        margin: 0 0 8px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 8px 28px #1118270b;
+      }
+      .panel + .panel {
+        margin-top: 18px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .stat {
+        background: var(--panel2);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .stat strong {
+        display: block;
+        font-size: 25px;
+      }
+      .stat span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .stack {
+        display: grid;
+        gap: 12px;
+      }
+      .field {
+        width: 100%;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+      .student-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 14px 0;
+      }
+      .student {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        padding: 10px;
+        font-size: 14px;
+        min-width: 0;
+      }
+      .student input {
+        accent-color: var(--accent);
+        width: 17px;
+        height: 17px;
+      }
+      .student span {
+        overflow-wrap: anywhere;
+      }
+      .team-list {
+        display: grid;
+        gap: 9px;
+        margin-top: 14px;
+      }
+      .team {
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        padding: 12px;
+      }
+      .team ul {
+        padding-left: 20px;
+        margin: 7px 0 0;
+        color: var(--muted);
+      }
+      .wheel {
+        width: min(270px, 75vw);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        margin: 18px auto;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          #6658f5 0 25%,
+          #e95c85 25% 50%,
+          #f2bd46 50% 75%,
+          #2e9be7 75% 100%
+        );
+        padding: 12px;
+        box-shadow: 0 8px 24px #0002;
+      }
+      .wheel-inner {
+        background: var(--panel);
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 20px;
+        border: 5px solid var(--panel);
+      }
+      .wheel-inner strong {
+        font-size: clamp(18px, 3vw, 24px);
+      }
+      .question {
+        font-size: 21px;
+        font-weight: 800;
+        margin: 15px 0;
+      }
+      .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .option {
+        background: var(--panel2);
+        color: var(--text);
+        border: 1px solid var(--line);
+        text-align: left;
+        min-height: 66px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .option b {
+        width: 29px;
+        height: 29px;
+        border-radius: 9px;
+        background: var(--panel);
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+      .option.chosen {
+        outline: 2px solid var(--accent);
+      }
+      .option.correct {
+        border-color: var(--good);
+        background: light-dark(#e2f8ee, #143b30);
+      }
+      .option.wrong {
+        border-color: var(--bad);
+        background: light-dark(#ffeaed, #48232d);
+      }
+      .notice {
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: var(--panel2);
+        margin-top: 13px;
+      }
+      .notice.goodtext {
+        background: light-dark(#e2f8ee, #143b30);
+        color: light-dark(#075c3d, #b6f6d8);
+      }
+      .notice.badtext {
+        background: light-dark(#ffeaed, #48232d);
+        color: light-dark(#8d1d31, #ffc0c9);
+      }
+      .hide {
+        display: none !important;
+      }
+      .progress {
+        height: 8px;
+        border-radius: 99px;
+        background: var(--line);
+        overflow: hidden;
+        margin: 10px 0 16px;
+      }
+      .progress span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        width: 0;
+        transition: width 0.25s;
+      }
+      .score {
+        font-size: 34px;
+        font-weight: 900;
+        color: var(--gold);
+      }
+      .table-wrap {
+        overflow: auto;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        white-space: nowrap;
+      }
+      th {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 13px;
+      }
+      .foot {
+        margin: 22px 0 4px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text);
+        color: var(--panel);
+        padding: 12px 18px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px #0003;
+        z-index: 5;
+        max-width: 90vw;
+      }
+      @media (max-width: 800px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .shell {
+          padding: 14px;
+        }
+        .student-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .top {
+          align-items: flex-start;
+        }
+        .top > .pill {
+          display: none;
+        }
+      }
+      @media (max-width: 440px) {
+        .options {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          gap: 6px;
+        }
+        .stat {
+          padding: 10px;
+        }
+        .stat strong {
+          font-size: 21px;
+        }
+        .panel {
+          padding: 16px;
+        }
+      }
+      /* Fondo gamer juvenil, sin imágenes: puro CSS */
+      :root {
+        color-scheme: dark;
+        --bg: #090d1b;
+        --panel: #111a30;
+        --panel2: #192641;
+        --text: #f3f6ff;
+        --muted: #a0aecb;
+        --line: #2b3b5d;
+        --accent: #7c5cff;
+        --accent2: #30265e;
+        --good: #28d6a0;
+        --bad: #ff647c;
+        --gold: #ffd166;
+      }
+      body {
+        background:
+          radial-gradient(ellipse at 12% 0%, #1d2b56 0, transparent 36%),
+          radial-gradient(ellipse at 92% 14%, #32205a 0, transparent 30%),
+          linear-gradient(145deg, #090d1b, #10172a 55%, #0b1020);
+        background-attachment: fixed;
+      }
+      .panel {
+        background: linear-gradient(145deg, #141e35f5, #10182bf5);
+        border-color: #2b3b5d;
+        box-shadow:
+          0 18px 48px #0003,
+          inset 0 1px #ffffff08;
+        backdrop-filter: blur(12px);
+      }
+      .logo {
+        box-shadow: 0 0 28px #6658f555;
+      }
+      .stat {
+        background: linear-gradient(145deg, #1b2b4b, #17213a);
+        border: 1px solid #2b3b5d;
+      }
+      .pill {
+        background: #151f38;
+        border-color: #3a4770;
+        color: #c2caff;
+      }
+      button {
+        background: linear-gradient(120deg, #7c5cff, #4b8dff);
+        box-shadow: 0 5px 18px #654fff24;
+      }
+      button:hover {
+        box-shadow: 0 8px 22px #654fff40;
+      }
+      .secondary {
+        background: #1a2742;
+        box-shadow: none;
+      }
+      .good {
+        background: linear-gradient(120deg, #087f68, #20b889);
+      }
+      .danger {
+        background: linear-gradient(120deg, #b93449, #e24f68);
+      }
+      .field {
+        background: #0d1425;
+        border-color: #344465;
+      }
+      .field:focus {
+        outline: none;
+        border-color: #8d7bff;
+        box-shadow: 0 0 0 3px #7c5cff28;
+      }
+      .student,
+      .team {
+        background: #121c31;
+      }
+      .wheel {
+        box-shadow:
+          0 0 0 8px #ffffff06,
+          0 0 48px #7c5cff25;
+        animation: wheelGlow 4s ease-in-out infinite;
+      }
+      .wheel-inner {
+        background: #10182b;
+        border-color: #1d2944;
+      }
+      .option {
+        background: #1a2742;
+        border-color: #344465;
+      }
+      .option b {
+        background: #0d1425;
+        color: #bcb2ff;
+      }
+      .option.correct {
+        background: #143b30;
+      }
+      .option.wrong {
+        background: #48232d;
+      }
+      .notice {
+        background: #1a2742;
+        border-color: #2d3c5d;
+      }
+      .notice.goodtext {
+        background: #103a31;
+        color: #b6f6d8;
+        border-color: #1c8066;
+      }
+      .notice.badtext {
+        background: #48232d;
+        color: #ffc0c9;
+        border-color: #a83b52;
+      }
+      .progress {
+        background: #263451;
+      }
+      .progress span {
+        background: linear-gradient(90deg, #7c5cff, #23c8d8);
+      }
+      .eyebrow {
+        color: #9da9ff;
+      }
+      @keyframes wheelGlow {
+        50% {
+          box-shadow:
+            0 0 0 8px #ffffff06,
+            0 0 58px #23c8d833;
+        }
+      }
+      /* CODE CHALLENGE: modo torneo, animaciones ligeras y accesibles */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+        background-size:
+          100% 100%,
+          100% 100%,
+          100% 100%;
+      }
+      .shell {
+        position: relative;
+      }
+      .top {
+        position: relative;
+        padding: 18px 20px;
+        border: 1px solid #34436b;
+        border-radius: 22px;
+        background: linear-gradient(115deg, #111a30dd, #21194bdd);
+        box-shadow: 0 18px 50px #0003;
+        overflow: hidden;
+        animation: ccEnter 0.65s ease both;
+      }
+      .top:after {
+        content: "";
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        right: -90px;
+        top: -150px;
+        border-radius: 50%;
+        background: #7c5cff30;
+        filter: blur(5px);
+        pointer-events: none;
+      }
+      .brand {
+        position: relative;
+        z-index: 1;
+      }
+      .brand h1 {
+        letter-spacing: 0.045em;
+        text-shadow: 0 0 24px #8d7bff35;
+      }
+      .brand .logo {
+        font-weight: 900;
+        animation: ccLogo 3s ease-in-out infinite;
+      }
+      .top > .pill {
+        position: relative;
+        z-index: 1;
+        background: #10182b;
+        border-color: #58649b;
+        color: #d9dcff;
+      }
+      .panel {
+        position: relative;
+        overflow: hidden;
+        animation: ccEnter 0.48s ease both;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+      .panel:hover {
+        border-color: #52659a;
+        box-shadow:
+          0 22px 55px #0004,
+          inset 0 1px #ffffff0d;
+      }
+      .panel h2,
+      .panel h3 {
+        letter-spacing: -0.02em;
+      }
+      .eyebrow {
+        letter-spacing: 0.16em;
+        text-shadow: 0 0 16px #7c5cff30;
+      }
+      .stat {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .stat:after {
+        content: "";
+        position: absolute;
+        right: -18px;
+        bottom: -34px;
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: #7c5cff16;
+      }
+      .stat:hover {
+        transform: translateY(-3px);
+        border-color: #7c5cff;
+      }
+      .stat strong {
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 0 20px #7c5cff25;
+      }
+      .team {
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+      .team:hover {
+        transform: translateY(-2px);
+        border-color: #6575b0;
+      }
+      .field {
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .field:focus-visible,
+      button:focus-visible,
+      .option:focus-visible {
+        outline: 3px solid #a99eff;
+        outline-offset: 3px;
+      }
+      button {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.18s ease,
+          filter 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      button:not(:disabled):active {
+        transform: translateY(1px) scale(0.985);
+      }
+      button:not(:disabled):hover {
+        filter: brightness(1.12);
+        box-shadow: 0 8px 24px #654fff38;
+      }
+      .secondary {
+        background: linear-gradient(135deg, #202d4a, #17223b);
+        border-color: #35476c;
+      }
+      .good {
+        background: linear-gradient(120deg, #087f68, #20b889);
+      }
+      .danger {
+        background: linear-gradient(120deg, #b93449, #e24f68);
+      }
+      .wheel {
+        position: relative;
+        isolation: isolate;
+        animation:
+          wheelGlow 4s ease-in-out infinite,
+          ccFloat 5s ease-in-out infinite;
+      }
+      .wheel:before {
+        content: "";
+        position: absolute;
+        inset: -9px;
+        border-radius: 50%;
+        border: 1px solid #8d7bff55;
+        animation: ccRing 2.8s ease-out infinite;
+        pointer-events: none;
+      }
+      .wheel-inner {
+        position: relative;
+        overflow: hidden;
+      }
+      .wheel-inner:after {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px dashed #9da9ff35;
+        border-radius: 50%;
+        animation: ccOrbit 28s linear infinite;
+        pointer-events: none;
+      }
+      .wheel-inner > div {
+        position: relative;
+        z-index: 1;
+      }
+      .option {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .option:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 20%,
+          #ffffff13 48%,
+          transparent 70%
+        );
+        transform: translateX(-120%);
+        transition: transform 0.45s ease;
+        pointer-events: none;
+      }
+      .option:hover:not(:disabled) {
+        transform: translateY(-3px);
+        border-color: #8d7bff;
+        box-shadow: 0 8px 24px #0003;
+      }
+      .option:hover:not(:disabled):after {
+        transform: translateX(120%);
+      }
+      .option.correct {
+        animation: ccCorrect 0.45s ease;
+      }
+      .option.wrong {
+        animation: ccWrong 0.35s ease;
+      }
+      .question {
+        animation: ccQuestion 0.35s ease both;
+      }
+      .notice:not(.hide) {
+        animation: ccNotice 0.28s ease both;
+      }
+      .progress span {
+        background-size: 200% 100%;
+        animation: ccShimmer 3s linear infinite;
+      }
+      .score {
+        text-shadow: 0 0 24px #ffd16655;
+      }
+      .pill {
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+      .table-wrap {
+        border: 1px solid #2b3b5d;
+        border-radius: 12px;
+      }
+      .table-wrap th {
+        background: #192641;
+        position: sticky;
+        top: 0;
+      }
+      .foot {
+        letter-spacing: 0.04em;
+      }
+      @keyframes ccEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes ccLogo {
+        0%,
+        100% {
+          box-shadow: 0 0 18px #6658f555;
+        }
+        50% {
+          box-shadow: 0 0 34px #23c8d866;
+        }
+      }
+      @keyframes ccFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+      @keyframes ccRing {
+        0% {
+          transform: scale(0.94);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.13);
+          opacity: 0;
+        }
+      }
+      @keyframes ccOrbit {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes ccCorrect {
+        0% {
+          transform: scale(0.98);
+        }
+        55% {
+          transform: scale(1.025);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes ccWrong {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-4px);
+        }
+        75% {
+          transform: translateX(4px);
+        }
+      }
+      @keyframes ccQuestion {
+        from {
+          opacity: 0;
+          transform: translateY(7px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes ccNotice {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes ccShimmer {
+        to {
+          background-position: 200% 0;
+        }
+      }
+      @media (max-width: 600px) {
+        .top {
+          padding: 15px;
+          border-radius: 17px;
+        }
+        .brand {
+          align-items: flex-start;
+        }
+        .brand .logo {
+          width: 42px;
+          height: 42px;
+          flex-shrink: 0;
+        }
+        .top h1 {
+          font-size: clamp(22px, 7vw, 32px);
+        }
+        .wheel {
+          width: min(240px, 72vw);
+        }
+        .panel:hover {
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      .bonus-panel {
+        border: 1px solid #8d7bff;
+        background: radial-gradient(ellipse at top, #30265e, #111a30 68%);
+        box-shadow: 0 0 55px #7c5cff24;
+      }
+      .bonus-title {
+        font-size: clamp(28px, 5vw, 46px);
+        text-align: center;
+        background: linear-gradient(90deg, #ffe08a, #b9a8ff, #70e6ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .bonus-code {
+        overflow-wrap: anywhere;
+        background: #080e1d;
+        border: 1px solid #3b4a70;
+        border-radius: 14px;
+        padding: 18px;
+        font:
+          600 16px/1.7 ui-monospace,
+          Consolas,
+          monospace;
+        color: #dbe6ff;
+      }
+      .bonus-wheel {
+        width: min(220px, 62vw);
+        margin: 16px auto;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 5px solid #8d7bff;
+        background: conic-gradient(#7c5cff, #23c8d8, #f3bd45, #e95c85, #7c5cff);
+        box-shadow: 0 0 42px #7c5cff44;
+      }
+      .bonus-wheel-inner {
+        width: 86%;
+        height: 86%;
+        border-radius: 50%;
+        background: #10182b;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 16px;
+      }
+      .bonus-wheel-inner strong {
+        font-size: clamp(16px, 3vw, 21px);
+        overflow-wrap: anywhere;
+      }
+      .bonus-win {
+        padding: 28px 18px;
+        border-radius: 20px;
+        text-align: center;
+        background: linear-gradient(135deg, #143b30, #30265e);
+        border: 1px solid #28d6a0;
+        animation: ccPrize 0.8s ease both;
+      }
+      .bonus-win .prize-emoji {
+        font-size: clamp(42px, 8vw, 76px);
+        animation: ccPrizePop 0.8s ease-in-out infinite alternate;
+      }
+      @keyframes ccPrize {
+        from {
+          opacity: 0;
+          transform: scale(0.88) translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      @keyframes ccPrizePop {
+        to {
+          transform: translateY(-8px) rotate(5deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="top">
+        <div class="brand">
+          <div class="logo">{ }</div>
+          <div>
+            <div class="eyebrow">Parcial interactivo</div>
+            <h1>CODE CHALLENGE</h1>
+            <div class="muted">Algoritmo y Programación · Modo profesor</div>
+          </div>
+        </div>
+        <div class="pill">🏆 15 estudiantes · 5 grupos aleatorios</div>
+      </header>
+      <section id="setup" class="panel">
+        <div class="eyebrow">Paso 1 de 3</div>
+        <h2>¿Cómo quieres diseñar los grupos?</h2>
+        <p class="muted">
+          Puedes crear los equipos manualmente o dejar que la aplicación los
+          mezcle al azar. Cada grupo puede tener de 1 a 3 integrantes.
+        </p>
+        <div class="row" style="margin: 18px 0">
+          <button id="manualMode" class="secondary">✍️ Manual</button
+          ><button id="randomMode">🎲 Aleatorio</button>
+        </div>
+        <div id="nameEditor" class="stack">
+          <label for="names"
+            ><b>Lista de los 15 estudiantes</b
+            ><span class="muted small">
+              · Un nombre por línea. Puedes reemplazar los nombres de
+              ejemplo.</span
+            ></label
+          ><textarea id="names" class="field" rows="8"></textarea>
+          <div class="row">
+            <button id="saveNames" class="secondary">Actualizar lista</button
+            ><span id="nameCount" class="muted small"></span>
+          </div>
+        </div>
+        <div id="manualBuilder" class="hide">
+          <div class="notice">
+            Marca hasta 3 estudiantes para crear cada grupo. Si marcas solo uno
+            o dos, también es válido. Los estudiantes ya asignados no vuelven a
+            aparecer.
+          </div>
+          <div id="manualStudents" class="student-grid"></div>
+          <div class="row">
+            <button id="addTeam">Añadir grupo con selección</button
+            ><button id="resetTeams" class="secondary">Reiniciar grupos</button>
+          </div>
+          <div id="manualTeams" class="team-list"></div>
+          <div class="row" style="margin-top: 16px">
+            <button id="startManual" disabled>
+              Confirmar grupos e ir al concurso →
+            </button>
+          </div>
+        </div>
+        <div id="randomBuilder" class="hide">
+          <div class="notice">
+            Se mezclarán los 15 estudiantes y se crearán 5 grupos de 3. Puedes
+            volver a mezclar antes de confirmar.
+          </div>
+          <div class="row" style="margin: 14px 0">
+            <button id="shuffleTeams">🎲 Generar grupos</button
+            ><button id="startRandom" disabled>
+              Confirmar grupos e ir al concurso →
+            </button>
+          </div>
+          <div id="randomTeams" class="team-list"></div>
+        </div>
+      </section>
+      <section id="game" class="hide">
+        <div class="stats">
+          <div class="stat">
+            <strong id="statTeams">0</strong><span>Grupos</span>
+          </div>
+          <div class="stat">
+            <strong id="statQuestions">0/0</strong
+            ><span>Preguntas contestadas</span>
+          </div>
+          <div class="stat">
+            <strong id="statPoints">0</strong
+            ><span>Puntos del grupo actual</span>
+          </div>
+        </div>
+        <div class="layout">
+          <div class="stack">
+            <section class="panel">
+              <div class="between">
+                <div>
+                  <div class="eyebrow">Turno actual</div>
+                  <h2 id="currentTeamTitle">Aún no hay grupo</h2>
+                  <div id="currentMembers" class="muted small"></div>
+                </div>
+                <span id="questionBadge" class="pill">Pregunta 0 de 3</span>
+              </div>
+              <div class="progress"><span id="progressBar"></span></div>
+              <div id="questionArea" class="hide">
+                <div id="topicBadge" class="pill"></div>
+                <div id="questionText" class="question"></div>
+                <div id="options" class="options"></div>
+                <div id="feedback" class="notice hide" aria-live="polite"></div>
+                <div class="row" style="margin-top: 14px">
+                  <button id="helpBtn" class="secondary">
+                    🆘 Solicitar ayuda</button
+                  ><button id="nextBtn" class="hide">
+                    Siguiente pregunta →</button
+                  ><button id="finishBtn" class="hide good">
+                    Finalizar cuestionario
+                  </button>
+                </div>
+                <div id="helpArea" class="hide notice">
+                  <label for="helperSelect"><b>¿Quién les ayudará?</b></label
+                  ><select
+                    id="helperSelect"
+                    class="field"
+                    style="margin: 8px 0"
+                  ></select>
+                  <div class="row">
+                    <button id="confirmHelper">Confirmar ayudante</button
+                    ><button id="cancelHelper" class="secondary">
+                      Cancelar
+                    </button>
+                  </div>
+                  <div id="helperFeedback" class="small"></div>
+                </div>
+              </div>
+              <div id="startTurnArea" class="stack">
+                <p class="muted">
+                  Gira la ruleta para seleccionar un estudiante y activar el
+                  turno de su grupo.
+                </p>
+                <button id="startQuestions" disabled>Iniciar preguntas</button>
+              </div>
+              <div id="finishedMessage" class="hide notice goodtext"></div>
+            </section>
+            <section class="panel">
+              <div class="between">
+                <h3>🏅 Marcador de grupos</h3>
+                <span class="pill">En vivo</span>
+              </div>
+              <div id="scoreboard" class="team-list"></div>
+            </section>
+          </div>
+          <div class="stack">
+            <section class="panel">
+              <div class="eyebrow">Selección aleatoria</div>
+              <h2>Ruleta de estudiantes</h2>
+              <div class="wheel">
+                <div class="wheel-inner">
+                  <div>
+                    <div class="eyebrow">Seleccionado</div>
+                    <strong id="wheelName">¡A girar!</strong>
+                    <div id="wheelTeam" class="muted small"></div>
+                  </div>
+                </div>
+              </div>
+              <button id="spinBtn" style="width: 100%">🎡 Girar ruleta</button>
+              <p class="muted small">
+                La ruleta elige entre estudiantes que aún no han tenido su
+                turno. Si sale alguien de un grupo ya atendido, se excluye ese
+                equipo.
+              </p>
+            </section>
+            <section class="panel">
+              <div class="between">
+                <h3>⭐ Puntos individuales por ayuda</h3>
+                <span class="pill">Acumulado</span>
+              </div>
+              <div id="helperScores" class="team-list">
+                <div class="muted small">
+                  Aún no se han otorgado puntos de ayuda.
+                </div>
+              </div>
+            </section>
+            <section class="panel">
+              <h3>📊 Guardado de resultados</h3>
+              <p class="muted small">
+                Pega aquí la URL de implementación de tu Apps Script para enviar
+                cada grupo a Google Sheets al finalizar. Si aún no la tienes,
+                deja el campo vacío y descarga el CSV.
+              </p>
+              <label class="small" for="sheetUrl"
+                >URL de Apps Script (/exec)</label
+              ><input
+                id="sheetUrl"
+                class="field"
+                placeholder="https://script.google.com/macros/s/.../exec"
+              /><button
+                id="saveSheetUrl"
+                class="secondary"
+                style="width: 100%; margin-top: 8px"
+              >
+                Guardar URL para esta sesión
+              </button>
+              <div
+                id="sheetStatus"
+                class="muted small"
+                style="margin: 8px 0"
+                aria-live="polite"
+              >
+                Google Sheets no está conectado.
+              </div>
+              <button id="exportCsv" class="secondary" style="width: 100%">
+                ⬇ Descargar resultados CSV</button
+              ><button
+                id="resetAll"
+                class="danger"
+                style="width: 100%; margin-top: 8px"
+              >
+                Reiniciar concurso
+              </button>
+            </section>
+          </div>
+        </div>
+        <section class="panel" style="margin-top: 18px">
+          <div class="between">
+            <div>
+              <h3>🧠 Banco de preguntas</h3>
+              <p class="muted small">
+                Preguntas de práctica distribuidas entre los cuatro temas
+                solicitados.
+              </p>
+            </div>
+            <span class="pill">12 preguntas base</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tema</th>
+                  <th>Vista previa</th>
+                  <th>Nivel</th>
+                </tr>
+              </thead>
+              <tbody id="questionBankPreview"></tbody>
+            </table>
+          </div>
+        </section>
+        <section
+          id="partialFinishArea"
+          class="panel hide"
+          style="margin-top: 18px; text-align: center"
+        >
+          <h2>🎓 ¡Todos los grupos completaron el parcial!</h2>
+          <p class="muted">¿Listos para el reto bonus y el premio sorpresa?</p>
+          <button id="finalizePartial" class="good">
+            🏁 Finalizar parcial y jugar bonus
+          </button>
+        </section>
+        <section
+          id="bonusArea"
+          class="panel bonus-panel hide"
+          style="margin-top: 18px"
+        >
+          <div class="eyebrow" style="text-align: center">
+            Reto final · Nivel medio
+          </div>
+          <h2 class="bonus-title">⚡ PREGUNTA BONUS ⚡</h2>
+          <p class="muted" style="text-align: center">
+            La ruleta elegirá a un estudiante. Si se equivoca, saldrá de la
+            ruleta y pasará el turno a otra persona.
+          </p>
+          <div id="bonusPlayArea">
+            <div class="bonus-wheel">
+              <div class="bonus-wheel-inner">
+                <div>
+                  <div class="eyebrow">Estudiante seleccionado</div>
+                  <strong id="bonusWheelName">¡A girar!</strong>
+                </div>
+              </div>
+            </div>
+            <button id="bonusSpinBtn" style="display: block; margin: 0 auto">
+              🎡 Girar ruleta bonus
+            </button>
+            <div id="bonusQuestionWrap" class="hide" style="margin-top: 24px">
+              <div class="bonus-code">
+                Algoritmo Calcular<br />x ← 3<br />Para i ← 1 Hasta 3 Hacer<br />&nbsp;&nbsp;x
+                ← x * 2 - i<br />FinPara<br />Escribir x<br />FinAlgoritmo
+              </div>
+              <div class="question" style="font-size: clamp(21px, 3.5vw, 30px)">
+                ¿Qué valor muestra el algoritmo al finalizar?
+              </div>
+              <div id="bonusOptions" class="options"></div>
+              <div
+                id="bonusFeedback"
+                class="notice hide"
+                aria-live="polite"
+              ></div>
+            </div>
+          </div>
+          <div id="bonusWin" class="bonus-win hide">
+            <div class="prize-emoji">🎁✨🏆</div>
+            <h2>¡TENEMOS GANADOR!</h2>
+            <p id="bonusWinnerText" style="font-size: 20px"></p>
+            <p>
+              ¡Felicitaciones! Has resuelto el reto final. Gracias por
+              participar en CODE CHALLENGE; ¡te has ganado un
+              <strong>PREMIO SORPRESA</strong>!
+            </p>
+            <div
+              style="font-size: 28px; letter-spacing: 8px"
+              aria-hidden="true"
+            >
+              🎉 🎊 ✨ 🥳 🎉
+            </div>
+          </div>
+          <div
+            id="bonusNoWinner"
+            class="notice badtext hide"
+            style="text-align: center"
+          >
+            <h3>¡Reto completado!</h3>
+            Todos los estudiantes participaron, pero nadie acertó esta vez.
+            ¡Gracias por jugar CODE CHALLENGE!
+          </div>
+        </section>
+      </section>
+      <div class="foot">
+        CODE CHALLENGE · Parcial de Algoritmo y Programación · Prototipo
+        interactivo
+      </div>
+    </main>
+    <div id="toast" class="toast hide" role="status"></div>
+    <script>
+      const initialNames = [
+        "CARAZO GANDARA ROUSSEAU EDUARDO",
+        "CARO MÁRQUEZ NÉSTOR GUSTAVO",
+        "CASTILLO MUÑOZ LUIS DAVID",
+        "DE LA ROSA BARRIOS KEVING HUMBERTO",
+        "GOMEZ REALES ADRIAN DAVID",
+        "GONZALEZ MENDOZA YESIT GABRIEL",
+        "HINCAPIÉ SARMIENTO JOURGEN ARTURO",
+        "MARTINEZ MARIMON VICTOR DANIEL",
+        "OCHOA VASQUEZ DIEGO ANDRES",
+        "PEREZ RODRÍGUEZ SEBASTIAN DAVID",
+        "ROCHA CHICO JEFFERSON",
+        "SALAS NAVARRO BARTOLO JUNIOR",
+        "VELASQUEZ DEAVILA JESÚS DANIEL",
+        "VILLASMIL ROSALES DIEGO RAFAEL",
+        "ZUÑIGA RODRIGUEZ KARLA MARCELA",
+      ];
+      const bank = [
+        {
+          topic: "Palabras reservadas de PSeInt",
+          level: "Básico",
+          q: "¿Cuál de las siguientes palabras se utiliza para declarar el inicio de un algoritmo en PSeInt?",
+          opts: ["Proceso", "Definir", "Escribir", "Segun"],
+          a: 0,
+          why: "Proceso (también se admite Algoritmo en muchos contextos) marca el inicio del algoritmo.",
+        },
+        {
+          topic: "Palabras reservadas de PSeInt",
+          level: "Básico",
+          q: "¿Qué instrucción permite mostrar un mensaje o resultado en pantalla?",
+          opts: ["Leer", "Escribir", "Mientras", "Dimension"],
+          a: 1,
+          why: "Escribir muestra información en la salida.",
+        },
+        {
+          topic: "Palabras reservadas de PSeInt",
+          level: "Básico",
+          q: "¿Qué palabra se usa para recibir un dato ingresado por el usuario?",
+          opts: ["Mostrar", "Imprimir", "Leer", "Entonces"],
+          a: 2,
+          why: "Leer captura el dato que ingresa el usuario.",
+        },
+        {
+          topic: "Condicionales",
+          level: "Básico",
+          q: "¿Qué estructura permite ejecutar instrucciones solo cuando una condición se cumple?",
+          opts: ["Para", "Si...Entonces", "Dimension", "Escribir"],
+          a: 1,
+          why: "Si...Entonces evalúa una condición y ejecuta un bloque según el resultado.",
+        },
+        {
+          topic: "Condicionales",
+          level: "Básico",
+          q: "Si una condición puede ser verdadera o falsa y hay una acción para cada caso, ¿qué estructura conviene usar?",
+          opts: [
+            "Si...Entonces...SiNo",
+            "Leer...Escribir",
+            "Para...Hasta",
+            "Dimension",
+          ],
+          a: 0,
+          why: "SiNo permite definir el camino alternativo cuando la condición no se cumple.",
+        },
+        {
+          topic: "Condicionales",
+          level: "Básico",
+          q: "¿Qué operador lógico exige que ambas condiciones sean verdaderas?",
+          opts: ["O", "NO", "Y", "MOD"],
+          a: 2,
+          why: "El operador Y (AND) solo resulta verdadero cuando ambas condiciones son verdaderas.",
+        },
+        {
+          topic: "Elaboración de menú",
+          level: "Básico",
+          q: "¿Qué estructura de PSeInt es especialmente útil para ejecutar una opción entre varias alternativas de un menú?",
+          opts: ["Segun", "Leer", "Dimension", "Mientras solamente"],
+          a: 0,
+          why: "Segun permite seleccionar entre varios casos a partir del valor de una variable.",
+        },
+        {
+          topic: "Elaboración de menú",
+          level: "Básico",
+          q: "En un menú con opciones 1, 2 y 3, ¿qué es recomendable hacer si el usuario ingresa 8?",
+          opts: [
+            "Ejecutar la opción 3",
+            "Cerrar siempre el programa",
+            "Mostrar un mensaje de opción inválida",
+            "Cambiar 8 por 1",
+          ],
+          a: 2,
+          why: "Validar la opción evita que se ejecuten acciones incorrectas.",
+        },
+        {
+          topic: "Elaboración de menú",
+          level: "Básico",
+          q: "¿Qué estructura permite repetir un menú hasta que el usuario seleccione “Salir”?",
+          opts: [
+            "Mientras o Repetir",
+            "Definir",
+            "Escribir una sola vez",
+            "Dimension",
+          ],
+          a: 0,
+          why: "Un ciclo mantiene el menú activo hasta que se cumpla la condición de salida.",
+        },
+        {
+          topic: "Divide y vencerás",
+          level: "Básico",
+          q: "¿Cuál es la idea principal de la estrategia “divide y vencerás”?",
+          opts: [
+            "Resolver todo en una sola instrucción",
+            "Dividir el problema en subproblemas más pequeños",
+            "Evitar usar funciones",
+            "Repetir sin condición",
+          ],
+          a: 1,
+          why: "Se divide el problema en partes más pequeñas, se resuelven y se combinan sus resultados.",
+        },
+        {
+          topic: "Divide y vencerás",
+          level: "Básico",
+          q: "¿Cuál de estos algoritmos es un ejemplo clásico de divide y vencerás?",
+          opts: [
+            "Búsqueda binaria",
+            "Sumar del 1 al 5 con una variable",
+            "Leer un nombre",
+            "Mostrar un saludo",
+          ],
+          a: 0,
+          why: "La búsqueda binaria reduce a la mitad el espacio de búsqueda en cada paso.",
+        },
+        {
+          topic: "Divide y vencerás",
+          level: "Básico",
+          q: "¿Qué elemento ayuda a detener una solución recursiva?",
+          opts: [
+            "Una variable global siempre",
+            "Un caso base",
+            "Un menú infinito",
+            "Una instrucción Escribir",
+          ],
+          a: 1,
+          why: "El caso base detiene la recursión cuando el problema ya es suficientemente sencillo.",
+        },
+      ];
+      let sheetEndpoint = "",
+        students = [...initialNames],
+        teams = [],
+        currentTeamId = null,
+        currentQIndex = 0,
+        currentQuestions = [],
+        selectedAnswer = null,
+        answered = false,
+        helpUsed = false,
+        chosenHelper = "",
+        usedHelpersByTeam = {},
+        turnDone = new Set(),
+        results = [],
+        helperPoints = {},
+        selectedMode = "random",
+        manualAssigned = new Set(),
+        spinning = false,
+        bonusEligible = [...initialNames],
+        bonusSelected = "",
+        bonusSpinning = false,
+        bonusEnded = false;
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      function toast(msg) {
+        $("toast").textContent = msg;
+        $("toast").classList.remove("hide");
+        setTimeout(() => $("toast").classList.add("hide"), 2600);
+      }
+      function readNames() {
+        let arr = $("names")
+          .value.split("\n")
+          .map((x) => x.trim())
+          .filter(Boolean);
+        if (arr.length !== 15) {
+          toast(
+            "Necesitas exactamente 15 nombres. Ahora hay " + arr.length + ".",
+          );
+          return false;
+        }
+        if (new Set(arr.map((x) => x.toLowerCase())).size !== arr.length) {
+          toast(
+            "Hay nombres repetidos. Diferéncialos para identificar correctamente a cada estudiante.",
+          );
+          return false;
+        }
+        students = arr;
+        $("nameCount").textContent = students.length + " estudiantes cargados";
+        return true;
+      }
+      function showMode(mode) {
+        selectedMode = mode;
+        $("manualBuilder").classList.toggle("hide", mode !== "manual");
+        $("randomBuilder").classList.toggle("hide", mode !== "random");
+        $("manualMode").classList.toggle("secondary", mode !== "manual");
+        $("randomMode").classList.toggle("secondary", mode !== "random");
+        if (mode === "manual") renderManualStudents();
+      }
+      function teamName(t) {
+        return t.name || "Grupo " + t.id;
+      }
+      function renderTeams(target, list) {
+        $(target).innerHTML = list.length
+          ? list
+              .map(
+                (t) =>
+                  `<div class="team"><div class="between"><b>${esc(teamName(t))}</b><span class="pill">${t.members.length} integrante${t.members.length === 1 ? "" : "s"}</span></div><ul>${t.members.map((n) => "<li>" + esc(n) + "</li>").join("")}</ul></div>`,
+              )
+              .join("")
+          : '<div class="muted small">Aún no hay grupos.</div>';
+      }
+      function renderManualStudents() {
+        let available = students.filter((s) => !manualAssigned.has(s));
+        $("manualStudents").innerHTML = available
+          .map(
+            (s) =>
+              `<label class="student"><input type="checkbox" value="${esc(s)}"><span>${esc(s)}</span></label>`,
+          )
+          .join("");
+        $("manualStudents")
+          .querySelectorAll("input")
+          .forEach((inp) =>
+            inp.addEventListener("change", () => {
+              let checked = [
+                ...$("manualStudents").querySelectorAll("input:checked"),
+              ];
+              if (checked.length > 3) {
+                inp.checked = false;
+                toast("Máximo 3 estudiantes por grupo.");
+              }
+            }),
+          );
+        $("addTeam").disabled = false;
+      }
+      function shuffle(a) {
+        let b = [...a];
+        for (let i = b.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [b[i], b[j]] = [b[j], b[i]];
+        }
+        return b;
+      }
+      $("names").value = initialNames.join("\n");
+      $("nameCount").textContent = "15 estudiantes cargados";
+      $("manualMode").onclick = () => showMode("manual");
+      $("randomMode").onclick = () => showMode("random");
+      $("saveNames").onclick = () => {
+        if (readNames()) {
+          manualAssigned.clear();
+          teams = [];
+          renderManualStudents();
+          renderTeams("manualTeams", teams);
+          $("startManual").disabled = true;
+          $("randomTeams").innerHTML = "";
+          $("startRandom").disabled = true;
+        }
+      };
+      $("addTeam").onclick = () => {
+        let chosen = [
+          ...$("manualStudents").querySelectorAll("input:checked"),
+        ].map((x) => x.value);
+        if (!chosen.length) {
+          toast("Selecciona al menos un estudiante.");
+          return;
+        }
+        teams.push({
+          id: teams.length + 1,
+          members: chosen,
+          score: 0,
+          questionScores: [],
+          helpers: [],
+          done: false,
+          questions: [],
+        });
+        chosen.forEach((s) => manualAssigned.add(s));
+        renderManualStudents();
+        renderTeams("manualTeams", teams);
+        $("startManual").disabled = teams.length === 0;
+        toast("Grupo " + teams.length + " creado.");
+      };
+      $("resetTeams").onclick = () => {
+        teams = [];
+        manualAssigned.clear();
+        renderManualStudents();
+        renderTeams("manualTeams", teams);
+        $("startManual").disabled = true;
+      };
+      $("shuffleTeams").onclick = () => {
+        if (!readNames()) return;
+        let a = shuffle(students);
+        teams = [];
+        for (let i = 0; i < a.length; i += 3)
+          teams.push({
+            id: teams.length + 1,
+            members: a.slice(i, i + 3),
+            score: 0,
+            questionScores: [],
+            helpers: [],
+            done: false,
+            questions: [],
+          });
+        renderTeams("randomTeams", teams);
+        $("startRandom").disabled = false;
+      };
+      $("startManual").onclick = () => {
+        if (!teams.length) return;
+        beginGame();
+      };
+      $("startRandom").onclick = () => {
+        if (!teams.length) return;
+        beginGame();
+      };
+      function chooseQuestions() {
+        let topics = [
+          "Palabras reservadas de PSeInt",
+          "Condicionales",
+          "Elaboración de menú",
+          "Divide y vencerás",
+        ];
+        let out = [];
+        topics.forEach((topic) => {
+          let options = shuffle(bank.filter((q) => q.topic === topic));
+          if (options[0]) out.push(options[0]);
+        });
+        return shuffle(out).slice(0, 3);
+      }
+      function beginGame() {
+        if (!teams.length) {
+          toast("Primero crea o genera los grupos.");
+          return;
+        }
+        teams.forEach((t) => {
+          t.questions = chooseQuestions();
+          t.done = false;
+          t.score = 0;
+          t.questionScores = [];
+          t.helpers = [];
+        });
+        $("setup").classList.add("hide");
+        $("game").classList.remove("hide");
+        $("statTeams").textContent = teams.length;
+        $("statQuestions").textContent = "0/" + teams.length * 3;
+        $("questionBankPreview").innerHTML = bank
+          .map(
+            (q) =>
+              `<tr><td>${esc(q.topic)}</td><td>${esc(q.q)}</td><td>${esc(q.level)}</td></tr>`,
+          )
+          .join("");
+        renderScoreboard();
+        renderHelperScores();
+        updateStats();
+        toast("Grupos listos. ¡Que comience el concurso!");
+      }
+      function renderScoreboard() {
+        let ranked = [...teams].sort(
+          (a, b) => b.score - a.score || a.id - b.id,
+        );
+        $("scoreboard").innerHTML = ranked
+          .map(
+            (t, i) =>
+              `<div class="team"><div class="between"><b>${i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : i + 1 + "."} ${esc(teamName(t))}</b><strong>${t.score} pts</strong></div><div class="muted small">${t.members.map(esc).join(" · ")}${t.done ? " · Finalizado" : ""}</div><div class="progress"><span style="width:${Math.min(100, (t.questionScores.length / 3) * 100)}%"></span></div></div>`,
+          )
+          .join("");
+      }
+      function renderHelperScores() {
+        let entries = Object.entries(helperPoints).sort(
+          (a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "es"),
+        );
+        $("helperScores").innerHTML = entries.length
+          ? `<div class="notice">🏆 <b>Quien más ha ayudado</b><br>${esc(entries[0][0])} · <strong>${entries[0][1]} puntos</strong></div>` +
+            entries
+              .map(
+                ([n, p], i) =>
+                  `<div class="between team"><span>${i === 0 ? "🥇 " : ""}${esc(n)}</span><strong>${p} pts</strong></div>`,
+              )
+              .join("")
+          : '<div class="muted small">Aún no se han otorgado puntos de ayuda.</div>';
+      }
+      function updateStats() {
+        $("statTeams").textContent = teams.length;
+        $("statQuestions").textContent =
+          teams.reduce((n, t) => n + t.questionScores.length, 0) +
+          "/" +
+          teams.length * 3;
+        $("statPoints").textContent = currentTeamId
+          ? teams.find((t) => t.id === currentTeamId)?.score || 0
+          : 0;
+        renderScoreboard();
+        renderHelperScores();
+      }
+      function spin() {
+        if (spinning) return;
+        let available = students.filter((s) => {
+          let t = teams.find((t) => t.members.includes(s));
+          return t && !t.done && !turnDone.has(t.id);
+        });
+        if (!available.length) {
+          toast("Todos los grupos ya tuvieron su turno.");
+          return;
+        }
+        spinning = true;
+        $("spinBtn").disabled = true;
+        $("startQuestions").disabled = true;
+        let count = 0;
+        let timer = setInterval(() => {
+          let name = available[Math.floor(Math.random() * available.length)];
+          $("wheelName").textContent = name;
+          count++;
+          if (count > 16) {
+            clearInterval(timer);
+            let chosen =
+              available[Math.floor(Math.random() * available.length)];
+            let t = teams.find((t) => t.members.includes(chosen));
+            currentTeamId = t.id;
+            $("wheelName").textContent = chosen;
+            $("wheelTeam").textContent = teamName(t);
+            $("currentTeamTitle").textContent = teamName(t);
+            $("currentMembers").textContent = t.members.join(" · ");
+            $("startQuestions").disabled = false;
+            $("startTurnArea").classList.remove("hide");
+            $("questionArea").classList.add("hide");
+            $("finishedMessage").classList.add("hide");
+            $("questionBadge").textContent = "Listo para iniciar";
+            spinning = false;
+            $("spinBtn").disabled = false;
+            updateStats();
+          }
+        }, 95);
+      }
+      $("spinBtn").onclick = spin;
+      $("startQuestions").onclick = () => {
+        let t = teams.find((t) => t.id === currentTeamId);
+        if (!t) return;
+        currentQIndex = 0;
+        currentQuestions = t.questions;
+        turnDone.add(t.id);
+        $("startTurnArea").classList.add("hide");
+        $("questionArea").classList.remove("hide");
+        $("finishedMessage").classList.add("hide");
+        showQuestion();
+      };
+      function showQuestion() {
+        let q = currentQuestions[currentQIndex];
+        selectedAnswer = null;
+        answered = false;
+        helpUsed = false;
+        chosenHelper = "";
+        $("helperSelect").innerHTML =
+          '<option value="">Primero solicita ayuda…</option>';
+        $("helperSelect").value = "";
+        $("confirmHelper").disabled = true;
+        $("helperFeedback").textContent = "";
+        $("helpBtn").textContent = "🆘 Solicitar ayuda";
+        $("questionBadge").textContent = `Pregunta ${currentQIndex + 1} de 3`;
+        $("progressBar").style.width = (currentQIndex / 3) * 100 + "%";
+        $("topicBadge").textContent = q.topic;
+        $("questionText").textContent = q.q;
+        $("options").innerHTML = q.opts
+          .map(
+            (o, i) =>
+              `<button class="option" data-i="${i}"><b>${"ABCD"[i]}</b><span>${esc(o)}</span></button>`,
+          )
+          .join("");
+        $("options")
+          .querySelectorAll("button")
+          .forEach(
+            (b) => (b.onclick = () => selectAnswer(Number(b.dataset.i))),
+          );
+        $("feedback").classList.add("hide");
+        $("helpBtn").classList.remove("hide");
+        $("helpBtn").disabled = false;
+        $("helpArea").classList.add("hide");
+        $("nextBtn").classList.add("hide");
+        $("finishBtn").classList.add("hide");
+        $("helperFeedback").textContent = "";
+        $("questionArea").classList.remove("hide");
+        updateStats();
+      }
+      function selectAnswer(i) {
+        if (answered) return;
+        selectedAnswer = i;
+        answered = true;
+        let q = currentQuestions[currentQIndex],
+          t = teams.find((t) => t.id === currentTeamId),
+          correct = i === q.a;
+        [...$("options").querySelectorAll("button")].forEach((b, j) => {
+          b.disabled = true;
+          if (j === q.a) b.classList.add("correct");
+          if (j === i && i !== q.a) b.classList.add("wrong");
+        });
+        let points = correct ? (helpUsed ? 5 : 10) : 0;
+        t.score += points;
+        t.questionScores.push(points);
+        t.helpers.push(
+          helpUsed
+            ? {
+                name: chosenHelper,
+                question: currentQIndex + 1,
+                correct,
+                groupPoints: points,
+                helperPoints: correct ? 5 : 0,
+              }
+            : null,
+        );
+        if (correct && helpUsed)
+          helperPoints[chosenHelper] = (helperPoints[chosenHelper] || 0) + 5;
+        $("feedback").className =
+          "notice " + (correct ? "goodtext" : "badtext");
+        $("feedback").textContent =
+          (correct ? "¡Respuesta correcta! " : "Respuesta incorrecta. ") +
+          q.why +
+          " Puntos para el grupo: " +
+          points +
+          "." +
+          (correct && helpUsed
+            ? " " + chosenHelper + " recibe 5 puntos de ayuda."
+            : "");
+        $("feedback").classList.remove("hide");
+        $("helpBtn").classList.add("hide");
+        $("helpArea").classList.add("hide");
+        if (currentQIndex < 2) $("nextBtn").classList.remove("hide");
+        else $("finishBtn").classList.remove("hide");
+        updateStats();
+      }
+      $("helpBtn").onclick = () => {
+        if (answered || helpUsed) return;
+        let t = teams.find((t) => t.id === currentTeamId);
+        if (!t) return;
+        const norm = (s) => s.trim().toLocaleLowerCase("es");
+        const members = new Set(t.members.map(norm));
+        const used = new Set((usedHelpersByTeam[t.id] || []).map(norm));
+        const eligible = students.filter(
+          (s) => !members.has(norm(s)) && !used.has(norm(s)),
+        );
+        $("helperSelect").innerHTML =
+          '<option value="">Selecciona un estudiante de otro grupo…</option>' +
+          eligible
+            .map(
+              (s) => '<option value="' + esc(s) + '">' + esc(s) + "</option>",
+            )
+            .join("");
+        $("helperSelect").value = "";
+        $("confirmHelper").disabled = !eligible.length;
+        $("helpArea").classList.remove("hide");
+        $("helperFeedback").textContent = eligible.length
+          ? "No aparecen los integrantes del grupo ni estudiantes que este equipo ya utilizó como ayudantes. Si el ayudante acierta, el grupo recibe 5 puntos y el ayudante recibe 5 puntos."
+          : "No quedan estudiantes disponibles: todos pertenecen al grupo o ya ayudaron antes a este equipo.";
+      };
+      $("helperSelect").onchange = () =>
+        ($("confirmHelper").disabled = !$("helperSelect").value);
+      $("cancelHelper").onclick = () => {
+        $("helpArea").classList.add("hide");
+        $("helperSelect").value = "";
+      };
+      $("confirmHelper").onclick = () => {
+        let t = teams.find((t) => t.id === currentTeamId);
+        if (!t) return;
+        const norm = (s) => s.trim().toLocaleLowerCase("es");
+        const members = new Set(t.members.map(norm));
+        const used = new Set((usedHelpersByTeam[t.id] || []).map(norm));
+        chosenHelper = $("helperSelect").value;
+        if (
+          !chosenHelper ||
+          members.has(norm(chosenHelper)) ||
+          used.has(norm(chosenHelper))
+        ) {
+          toast(
+            "Elige un estudiante válido que no pertenezca al grupo y que no haya ayudado antes a este equipo.",
+          );
+          return;
+        }
+        helpUsed = true;
+        usedHelpersByTeam[t.id] = [
+          ...(usedHelpersByTeam[t.id] || []),
+          chosenHelper,
+        ];
+        $("helperFeedback").textContent =
+          "Ayudante seleccionado: " +
+          chosenHelper +
+          ". Ahora el grupo debe elegir una respuesta.";
+        $("helpBtn").textContent = "Ayuda solicitada: " + chosenHelper;
+        $("helpBtn").disabled = true;
+        $("helpArea").classList.add("hide");
+        toast("Ayuda confirmada. Si acierta, el reparto será 5 + 5.");
+      };
+      $("nextBtn").onclick = () => {
+        currentQIndex++;
+        showQuestion();
+      };
+      $("finishBtn").onclick = async () => {
+        let t = teams.find((t) => t.id === currentTeamId);
+        t.done = true;
+        let record = {
+          group: teamName(t),
+          members: [...t.members],
+          scores: [...t.questionScores],
+          total: t.score,
+          helpers: t.helpers.map((h, i) =>
+            h
+              ? {
+                  name: h.name,
+                  question: i + 1,
+                  correct: h.correct,
+                  groupPoints: h.groupPoints,
+                  helperPoints: h.helperPoints,
+                }
+              : null,
+          ),
+        };
+        results.push(record);
+        if (sheetEndpoint) {
+          $("sheetStatus").textContent =
+            "Enviando " + teamName(t) + " a Google Sheets…";
+          try {
+            await fetch(sheetEndpoint, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+              body: JSON.stringify(record),
+            });
+            $("sheetStatus").textContent =
+              "Solicitud enviada para " +
+              teamName(t) +
+              ". Verifica la hoja de cálculo para confirmar el registro.";
+          } catch (e) {
+            $("sheetStatus").textContent =
+              "No se pudo enviar a Google Sheets. Descarga el CSV como respaldo.";
+          }
+        }
+        $("questionArea").classList.add("hide");
+        $("finishedMessage").classList.remove("hide");
+        $("finishedMessage").innerHTML =
+          `<b>¡Turno finalizado!</b><br>${esc(teamName(t))} obtuvo <strong>${t.score} puntos</strong> en sus tres preguntas. Los resultados se han añadido al registro local de esta sesión.`;
+        $("startTurnArea").classList.remove("hide");
+        $("startQuestions").disabled = true;
+        $("startQuestions").textContent = "Turno completado";
+        $("currentTeamTitle").textContent = teamName(t) + " · Finalizado";
+        $("progressBar").style.width = "100%";
+        updateStats();
+        if (teams.every((x) => x.done)) {
+          toast("¡Concurso terminado! Descarga los resultados CSV.");
+          $("spinBtn").disabled = true;
+        } else {
+          $("spinBtn").disabled = false;
+          $("wheelName").textContent = "¡A girar!";
+          $("wheelTeam").textContent = "Siguiente grupo";
+        }
+      };
+      function csvCell(v) {
+        return '"' + String(v ?? "").replace(/"/g, '""') + '"';
+      }
+      $("exportCsv").onclick = () => {
+        let rows = [
+          [
+            "Grupo",
+            "Integrante 1",
+            "Integrante 2",
+            "Integrante 3",
+            "Puntos pregunta 1",
+            "Puntos pregunta 2",
+            "Puntos pregunta 3",
+            "Total grupo",
+            "Ayuda solicitada",
+            "Pregunta",
+            "Estudiante ayudante",
+            "Respuesta correcta",
+            "Puntos grupo por ayuda",
+            "Puntos ayudante",
+          ],
+        ];
+        teams.forEach((t) => {
+          let base = [
+            teamName(t),
+            t.members[0] || "",
+            t.members[1] || "",
+            t.members[2] || "",
+            t.questionScores[0] ?? "",
+            t.questionScores[1] ?? "",
+            t.questionScores[2] ?? "",
+            t.score,
+          ];
+          let hs = t.helpers
+            .map((h, i) => (h ? { ...h, question: i + 1 } : null))
+            .filter(Boolean);
+          if (!hs.length) rows.push([...base, "No", "", "", "", "", ""]);
+          else
+            hs.forEach((h) =>
+              rows.push([
+                ...base,
+                "Sí",
+                h.question,
+                h.name,
+                h.correct ? "Sí" : "No",
+                h.groupPoints,
+                h.helperPoints,
+              ]),
+            );
+        });
+        let csv =
+          "\ufeff" + rows.map((r) => r.map(csvCell).join(";")).join("\r\n");
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(
+          new Blob([csv], { type: "text/csv;charset=utf-8;" }),
+        );
+        a.download = "resultados_code_challenge.csv";
+        a.click();
+        URL.revokeObjectURL(a.href);
+        toast("CSV generado. Puedes abrirlo en Excel o Google Sheets.");
+      };
+      $("saveSheetUrl").onclick = () => {
+        let url = $("sheetUrl").value.trim();
+        if (
+          url &&
+          !/^https:\/\/script\.google\.com\/(?:macros\/s\/[^/]+\/exec|a\/macros\/[^/]+\/s\/[^/]+\/exec)\/?$/.test(
+            url,
+          )
+        ) {
+          toast(
+            "Pega la URL completa de implementación de Apps Script que termina en /exec.",
+          );
+          $("sheetStatus").textContent =
+            "La URL no tiene el formato esperado. Revisa que sea la URL de implementación del Web App.";
+          return;
+        }
+        sheetEndpoint = url.replace(/\/+$/, "");
+        $("sheetStatus").textContent = url
+          ? "URL configurada para esta sesión. Al finalizar cada grupo se enviará su resultado."
+          : "Google Sheets no está conectado; puedes descargar el CSV.";
+        toast(
+          url ? "URL configurada para esta sesión." : "Conexión desactivada.",
+        );
+      };
+      $("resetAll").onclick = () => {
+        if (
+          !confirm(
+            "¿Seguro que quieres reiniciar el concurso y borrar el progreso de esta sesión?",
+          )
+        )
+          return;
+        location.reload();
+      };
+      /* Ayuda disponible por cada pregunta: se permite repetir ayudantes en preguntas distintas. */
+      $("helpBtn").onclick = () => {
+        if (answered || helpUsed) return;
+        const t = teams.find((x) => x.id === currentTeamId);
+        if (!t) return;
+        const norm = (s) => s.trim().toLocaleLowerCase("es");
+        const members = new Set(t.members.map(norm));
+        const eligible = students.filter((s) => !members.has(norm(s)));
+        $("helperSelect").innerHTML =
+          '<option value="">Selecciona un estudiante de otro grupo…</option>' +
+          eligible
+            .map(
+              (s) => '<option value="' + esc(s) + '">' + esc(s) + "</option>",
+            )
+            .join("");
+        $("helperSelect").value = "";
+        $("confirmHelper").disabled = !eligible.length;
+        $("helpArea").classList.remove("hide");
+        $("helperFeedback").textContent = eligible.length
+          ? "Esta ayuda cuenta solo para la pregunta actual. Si el grupo acierta, ambos reciben 5 puntos. Podrán volver a solicitar ayuda en otra pregunta."
+          : "No hay estudiantes de otros grupos disponibles para ayudar.";
+      };
+      $("confirmHelper").onclick = () => {
+        const t = teams.find((x) => x.id === currentTeamId);
+        if (!t) return;
+        const norm = (s) => s.trim().toLocaleLowerCase("es");
+        const members = new Set(t.members.map(norm));
+        chosenHelper = $("helperSelect").value;
+        if (!chosenHelper || members.has(norm(chosenHelper))) {
+          toast("Elige un estudiante que no pertenezca al grupo.");
+          return;
+        }
+        helpUsed = true;
+        usedHelpersByTeam[t.id] = [
+          ...(usedHelpersByTeam[t.id] || []),
+          chosenHelper,
+        ];
+        $("helperFeedback").textContent =
+          "Ayudante seleccionado: " +
+          chosenHelper +
+          ". Ahora el grupo debe elegir una respuesta.";
+        $("helpBtn").textContent = "Ayuda solicitada: " + chosenHelper;
+        $("helpBtn").disabled = true;
+        $("helpArea").classList.add("hide");
+        toast(
+          "Ayuda confirmada para esta pregunta. Si acierta, el reparto será 5 + 5.",
+        );
+      };
+      $("finishBtn").addEventListener("click", () => {
+        setTimeout(() => {
+          const allFinished =
+            teams.length > 0 &&
+            teams.every((t) => t.done || t.questionScores.length >= 3);
+          if (allFinished) {
+            $("partialFinishArea").classList.remove("hide");
+            $("finalizePartial").textContent = "🏁 Iniciar Bonus Track";
+            $("partialFinishArea").scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            toast("¡Parcial finalizado! Ya puedes iniciar el Bonus Track.");
+          }
+        }, 0);
+      });
+      $("finalizePartial").onclick = () => {
+        bonusEligible = [...students];
+        bonusSelected = "";
+        bonusEnded = false;
+        $("partialFinishArea").classList.add("hide");
+        $("bonusArea").classList.remove("hide");
+        $("bonusPlayArea").classList.remove("hide");
+        $("bonusWin").classList.add("hide");
+        $("bonusNoWinner").classList.add("hide");
+        $("bonusQuestionWrap").classList.add("hide");
+        $("bonusFeedback").classList.add("hide");
+        $("bonusSpinBtn").disabled = false;
+        $("bonusSpinBtn").textContent = "🎡 Girar ruleta bonus";
+        $("bonusWheelName").textContent = "¡A girar!";
+        $("bonusArea").scrollIntoView({ behavior: "smooth", block: "start" });
+        toast("¡Comienza el reto bonus de nivel medio!");
+      };
+      $("bonusSpinBtn").onclick = () => {
+        if (bonusSpinning || bonusEnded) return;
+        if (!bonusEligible.length) {
+          $("bonusNoWinner").classList.remove("hide");
+          $("bonusSpinBtn").disabled = true;
+          return;
+        }
+        bonusSpinning = true;
+        $("bonusSpinBtn").disabled = true;
+        $("bonusQuestionWrap").classList.add("hide");
+        $("bonusFeedback").classList.add("hide");
+        let ticks = 0;
+        const timer = setInterval(() => {
+          $("bonusWheelName").textContent =
+            bonusEligible[Math.floor(Math.random() * bonusEligible.length)];
+          ticks++;
+          if (ticks >= 18) {
+            clearInterval(timer);
+            bonusSelected =
+              bonusEligible[Math.floor(Math.random() * bonusEligible.length)];
+            $("bonusWheelName").textContent = bonusSelected;
+            $("bonusQuestionWrap").classList.remove("hide");
+            $("bonusOptions").innerHTML = ["11", "13", "16", "18"]
+              .map(
+                (v, i) =>
+                  `<button class="option" data-bonus="${i}"><b>${"ABCD"[i]}</b><span>${v}</span></button>`,
+              )
+              .join("");
+            $("bonusOptions")
+              .querySelectorAll("button")
+              .forEach(
+                (b) =>
+                  (b.onclick = () => {
+                    if (bonusEnded) return;
+                    const correct = Number(b.dataset.bonus) === 1;
+                    [...$("bonusOptions").querySelectorAll("button")].forEach(
+                      (x) => {
+                        x.disabled = true;
+                        if (Number(x.dataset.bonus) === 1)
+                          x.classList.add("correct");
+                        if (x === b && !correct) x.classList.add("wrong");
+                      },
+                    );
+                    if (correct) {
+                      bonusEnded = true;
+                      $("bonusPlayArea").classList.add("hide");
+                      $("bonusWin").classList.remove("hide");
+                      $("bonusWinnerText").textContent =
+                        "¡" + bonusSelected + "!";
+                      $("bonusArea").scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                      });
+                      return;
+                    }
+                    bonusEligible = bonusEligible.filter(
+                      (s) => s !== bonusSelected,
+                    );
+                    $("bonusFeedback").className = "notice badtext";
+                    $("bonusFeedback").textContent =
+                      "Respuesta incorrecta. " +
+                      bonusSelected +
+                      " queda fuera de la ruleta.";
+                    $("bonusFeedback").classList.remove("hide");
+                    $("bonusSpinBtn").disabled = false;
+                    $("bonusSpinBtn").textContent = bonusEligible.length
+                      ? "🔄 Girar de nuevo"
+                      : "Ver resultado final";
+                    if (!bonusEligible.length) {
+                      $("bonusSpinBtn").disabled = true;
+                      $("bonusNoWinner").classList.remove("hide");
+                    }
+                  }),
+              );
+            bonusSpinning = false;
+            $("bonusSpinBtn").disabled = false;
+            $("bonusSpinBtn").textContent = "🎡 Girar siguiente estudiante";
+          }
+        }, 85);
+      };
+      showMode("random");
+    </script>
+  </body>
+</html>
