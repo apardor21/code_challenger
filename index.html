@@ -981,9 +981,266 @@
           transform: translateY(-8px) rotate(5deg);
         }
       }
+      /* Pantalla de bienvenida del parcial */
+      #loadingScreen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 22px;
+        background:
+          radial-gradient(ellipse at 50% 35%, #30226a 0, transparent 42%),
+          radial-gradient(ellipse at 15% 85%, #123c69 0, transparent 38%),
+          #070b17;
+        transition:
+          opacity 0.7s ease,
+          visibility 0.7s ease;
+      }
+      #loadingScreen.loading-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .loading-stars {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(#fff 1px, transparent 1px),
+          radial-gradient(#9e8cff 1px, transparent 1px);
+        background-size:
+          70px 70px,
+          113px 113px;
+        background-position:
+          0 0,
+          30px 45px;
+        opacity: 0.24;
+        animation: loadingDrift 18s linear infinite;
+      }
+      .loading-card {
+        position: relative;
+        width: min(900px, 100%);
+        text-align: center;
+        padding: clamp(28px, 6vw, 70px) 20px;
+        border: 1px solid #7164ff80;
+        border-radius: 32px;
+        background: linear-gradient(145deg, #111a30ef, #17102bef);
+        box-shadow:
+          0 0 100px #715cff25,
+          inset 0 1px #ffffff14;
+        animation: loadingAppear 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      .loading-chip {
+        display: inline-flex;
+        gap: 9px;
+        align-items: center;
+        padding: 9px 15px;
+        border: 1px solid #6574bd;
+        border-radius: 99px;
+        color: #cbd4ff;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        font-size: clamp(10px, 2vw, 13px);
+      }
+      .loading-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #39edc1;
+        box-shadow: 0 0 18px #39edc1;
+        animation: loadingPulse 1s ease-in-out infinite;
+      }
+      .loading-title {
+        font-size: clamp(42px, 9vw, 104px);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+        font-weight: 1000;
+        margin: 28px 0 16px;
+        background: linear-gradient(
+          100deg,
+          #fff 10%,
+          #b7a8ff 42%,
+          #65e7ff 70%,
+          #fff 90%
+        );
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: loadingShine 4s linear infinite;
+      }
+      .loading-question {
+        font-size: clamp(25px, 5vw, 48px);
+        font-weight: 950;
+        color: #fff;
+        margin: 16px 0 10px;
+        text-shadow: 0 0 28px #8d7bff80;
+      }
+      .loading-subtitle {
+        font-size: clamp(14px, 2.4vw, 19px);
+        color: #b8c5e8;
+        margin: 0 auto 28px;
+        max-width: 620px;
+      }
+      .loading-orb {
+        width: clamp(70px, 12vw, 105px);
+        aspect-ratio: 1;
+        margin: 0 auto 25px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: clamp(34px, 6vw, 54px);
+        background: conic-gradient(
+          from 0deg,
+          #7c5cff,
+          #23c8d8,
+          #ffd166,
+          #e95c85,
+          #7c5cff
+        );
+        box-shadow: 0 0 45px #7c5cff70;
+        animation:
+          loadingSpin 5s linear infinite,
+          loadingFloat 2.5s ease-in-out infinite;
+      }
+      .loading-orb span {
+        display: grid;
+        place-items: center;
+        width: 76%;
+        height: 76%;
+        border-radius: 50%;
+        background: #10182b;
+        animation: loadingSpin 5s linear infinite reverse;
+      }
+      .loading-progress {
+        width: min(440px, 90%);
+        height: 8px;
+        margin: 0 auto 25px;
+        border-radius: 99px;
+        overflow: hidden;
+        background: #273450;
+      }
+      .loading-progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #7c5cff, #23c8d8, #39edc1);
+        box-shadow: 0 0 18px #23c8d8;
+        animation: loadingBar 2.4s ease-in-out infinite;
+      }
+      .loading-start {
+        font-size: clamp(16px, 2.6vw, 21px);
+        padding: 16px 30px;
+        border-radius: 16px;
+        background: linear-gradient(110deg, #7c5cff, #338cff, #23c8d8);
+        box-shadow: 0 8px 32px #5d5cff55;
+        animation: loadingButton 2s ease-in-out infinite;
+      }
+      .loading-hint {
+        margin-top: 18px;
+        font-size: 12px;
+        color: #8595bd;
+        letter-spacing: 0.08em;
+      }
+      @keyframes loadingAppear {
+        from {
+          opacity: 0;
+          transform: translateY(22px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes loadingSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes loadingFloat {
+        50% {
+          translate: 0 -7px;
+        }
+      }
+      @keyframes loadingPulse {
+        50% {
+          opacity: 0.35;
+          transform: scale(0.75);
+        }
+      }
+      @keyframes loadingShine {
+        to {
+          background-position: 220% center;
+        }
+      }
+      @keyframes loadingBar {
+        0% {
+          width: 5%;
+          margin-left: 0;
+        }
+        55% {
+          width: 78%;
+          margin-left: 10%;
+        }
+        100% {
+          width: 5%;
+          margin-left: 95%;
+        }
+      }
+      @keyframes loadingButton {
+        50% {
+          box-shadow: 0 8px 42px #23c8d866;
+          transform: translateY(-2px);
+        }
+      }
+      @keyframes loadingDrift {
+        to {
+          background-position:
+            140px 140px,
+            -80px 165px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #loadingScreen *,
+        #loadingScreen *:before {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <section
+      id="loadingScreen"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="loadingTitle"
+    >
+      <div class="loading-stars"></div>
+      <div class="loading-card">
+        <div class="loading-chip">
+          <span class="loading-dot"></span> SISTEMA DE TORNEO · EN LÍNEA
+        </div>
+        <div class="loading-title" id="loadingTitle">CARGANDO<br />PARCIAL</div>
+        <div class="loading-orb" aria-hidden="true"><span>⚡</span></div>
+        <div class="loading-question">¿ESTÁN LISTOS?</div>
+        <p class="loading-subtitle">
+          Activen sus mentes, preparen sus equipos y que comience el desafío.
+          ¡Hoy se juega por el conocimiento!
+        </p>
+        <div class="loading-progress" aria-hidden="true"><span></span></div>
+        <button id="loadingStart" class="loading-start">
+          🚀 ¡ESTAMOS LISTOS!
+        </button>
+        <div class="loading-hint">
+          CODE CHALLENGE · PIENSA RÁPIDO · JUEGA EN EQUIPO
+        </div>
+      </div>
+    </section>
     <main class="shell">
       <header class="top">
         <div class="brand">
@@ -2205,7 +2462,7 @@
                     $("bonusFeedback").textContent =
                       "Respuesta incorrecta. " +
                       bonusSelected +
-                      " queda fuera de la ruleta.";
+                      " queda fuera de la ruleta Sea serio ombeeeeee.......";
                     $("bonusFeedback").classList.remove("hide");
                     $("bonusSpinBtn").disabled = false;
                     $("bonusSpinBtn").textContent = bonusEligible.length
@@ -2223,6 +2480,27 @@
           }
         }, 85);
       };
+      const loadingScreen = $("loadingScreen");
+      const enterChallenge = () => {
+        loadingScreen.classList.add("loading-hidden");
+        document.body.style.overflowX = "hidden";
+        setTimeout(() => loadingScreen.remove(), 750);
+        toast("¡Que comience el CODE CHALLENGE!");
+      };
+      $("loadingStart").addEventListener("click", enterChallenge);
+      loadingScreen.addEventListener("click", (e) => {
+        if (e.target === loadingScreen)
+          toast("¡Pulsa “ESTAMOS LISTOS” para comenzar!");
+      });
+      document.addEventListener("keydown", (e) => {
+        if (
+          !loadingScreen.classList.contains("loading-hidden") &&
+          (e.key === "Enter" || e.key === " ")
+        ) {
+          e.preventDefault();
+          enterChallenge();
+        }
+      });
       showMode("random");
     </script>
   </body>
